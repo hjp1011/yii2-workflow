@@ -1,0 +1,43 @@
+{
+	"name" : "hjp1011/yii2-workflow",
+	"description" : "A simple workflow engine for Yii2",
+	"keywords" : [
+		"yii2",
+		"workflow"
+	],
+	"homepage" : "https://github.com/hjp1011/yii2-workflow",
+	"type" : "yii2-extension",
+	"license" : "BSD-3-Clause",
+	"support" : {
+		"issues" : "https://github.com/hjp1011/yii2-workflow/issues",
+		"source" : "https://github.com/hjp1011/yii2-workflow",
+		"email" : "hjp1011@163.com"
+	},
+	"minimum-stability" : "stable",
+	"require" : {
+		"php" : ">=5.4.0",
+		"yiisoft/yii2" : "~2.0.13"
+	},
+	"require-dev" : {
+		"codeception/codeception" : ">= 2.0.9",
+		"myclabs/deep-copy" : ">= 1.3.1",
+		"codeception/specify" : "*",
+		"codeception/verify" : "*",
+		"yiisoft/yii2-codeception" : "*",
+		"codeception/assert-throws": "^1.0"
+	},
+	"config" : {
+		"process-timeout" : 1800
+	},
+	"autoload" : {
+		"psr-4" : {
+			"hjp1011\\workflow\\" : "src/"
+		}
+	},
+	"authors" : [{
+			"name" : "Raoul",
+			"email" : "raoul.boulard@gmail.com",
+			"homepage" : "https://github.com/hjp1011/yii2-workflow"
+		}
+	]
+}
