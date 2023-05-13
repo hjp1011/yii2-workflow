@@ -79,7 +79,7 @@ Let's see how our workflow definition looks like :
 ```php
 namespace app\models;
 
-class PostWorkflow implements \raoul2000\workflow\source\file\IWorkflowDefinitionProvider
+class PostWorkflow implements \hjp1011\workflow\source\file\IWorkflowDefinitionProvider
 {
 	public function getDefinition() {
 		return [
@@ -135,7 +135,7 @@ class Post extends \yii\db\ActiveRecord
     public function behaviors()
     {
     	return [
-			\raoul2000\workflow\base\SimpleWorkflowBehavior::className()
+			\hjp1011\workflow\base\SimpleWorkflowBehavior::className()
     	];
     }
     // ...
@@ -168,7 +168,7 @@ $post->save();
 
 When we run this code, we get an Exception !
 
-	Workflow Exception – raoul2000\workflow\base\WorkflowException
+	Workflow Exception – hjp1011\workflow\base\WorkflowException
 	Not an initial status : PostWorkflow/published ("PostWorkflow/draft" expected)
 
 Could it be more clear ? Ok, maybe it could but let's see in detail what just happened.
@@ -245,7 +245,7 @@ If status assignment can be done by assigning a value to the `status` attribute,
 
 ### getWorkflowStatus() vs attribute
 
-When you call `getWorkflowStatus()` on a model attached to the *SimpleWorkflowBehavior*, you will get the instance of the status your model is currently in. The type of the object returned in this case is *\raoul2000\workflow\base\Status*. If your model is not in a workflow, `getWorkflowStatus()` returns NULL.
+When you call `getWorkflowStatus()` on a model attached to the *SimpleWorkflowBehavior*, you will get the instance of the status your model is currently in. The type of the object returned in this case is *\hjp1011\workflow\base\Status*. If your model is not in a workflow, `getWorkflowStatus()` returns NULL.
 
 
 ```php
@@ -294,7 +294,7 @@ $post->save();	// keep the faith
 
 Can you guess what happens when the model is saved ?  Well, that's when the *SimpleWorkflowBehavior* enter into action, but that's too late... The value of the `status` attribute is *correction* and the *real* status value stored internally by the behavior is NULL. From the *SimpleWorkflowBehavior* point of view, this post object is trying to enter into a workflow through the *correction* status and we already know this is not permitted : bang ! Same exception again !
 
-	Workflow Exception – raoul2000\workflow\base\WorkflowException
+	Workflow Exception – hjp1011\workflow\base\WorkflowException
 	Not an initial status : PostWorkflow/published ("PostWorkflow/draft" expected)
 
 This small example tries to illustrate the danger of using the status attribute to know the actual status of the object. Very much care should be taken when doing this and remember that **the value of the status attribute does not always reflect the actual Status of a model**.
@@ -340,7 +340,7 @@ Let's see how to implement this *sendMail()* task and include it in our workflow
 `@app/models/Post.php`
 
 ```php
-use raoul2000\workflow\events\WorkflowEvent;
+use hjp1011\workflow\events\WorkflowEvent;
 
 class Post extends \yii\db\ActiveRecord
 {
@@ -405,7 +405,7 @@ In our workflow, the only way for a post to reach the *published* status is comi
 
 
 ```php
-use raoul2000\workflow\events\WorkflowEvent;
+use hjp1011\workflow\events\WorkflowEvent;
 
 class Post extends \yii\db\ActiveRecord
 {
@@ -446,7 +446,7 @@ Theses validation could of course be implemented using the event model we saw in
 *SimpleWorkflow* doesn't only provide a behavior, it also came with a custom validator that will help us in verifying that on a specific transition our model attributes are correct. In the example below, we will check the first rule  : in the *draft* to *correction* transition, the attribute *category* is required.
 
 ```php
-use raoul2000\workflow\validation\WorkflowValidator;
+use hjp1011\workflow\validation\WorkflowValidator;
 
 class Post extends \yii\db\ActiveRecord
 {
@@ -460,7 +460,7 @@ class Post extends \yii\db\ActiveRecord
     }
 ```
 
-In order to enable workflow driven attribute validation, it is required to use the `raoul2000\workflow\validation\WorkflowValidator` validator. When you validate the `status` attribute, the *WorkflowValidator* creates a scenario name based on the transition that is about to occur. Remember that the pending transition is the one that goes from the **actual** status of the model (maintained internally by the *SimpleWorkflowBehavior*) and the **future** status (assigned to the `status` attribute). Once the scenario name is created, the *WorkflowValidator* applies all validation rules that matches the scenario.
+In order to enable workflow driven attribute validation, it is required to use the `hjp1011\workflow\validation\WorkflowValidator` validator. When you validate the `status` attribute, the *WorkflowValidator* creates a scenario name based on the transition that is about to occur. Remember that the pending transition is the one that goes from the **actual** status of the model (maintained internally by the *SimpleWorkflowBehavior*) and the **future** status (assigned to the `status` attribute). Once the scenario name is created, the *WorkflowValidator* applies all validation rules that matches the scenario.
 
 In the following example, our post instance is first sent to status *draft* using the `sendToStatus()` method, and then to 'correction' using `save()` which by default initiates the model validation.
 
@@ -499,8 +499,8 @@ The helper class *WorkflowScenario* is here to assist you with scenario names, a
 Let's rewrite our validation rules using the *WorkflowScenario* helper:
 
 ```php
-use raoul2000\workflow\validation\WorkflowValidator;
-use raoul2000\workflow\validation\WorkflowScenario;
+use hjp1011\workflow\validation\WorkflowValidator;
+use hjp1011\workflow\validation\WorkflowScenario;
 
 class Post extends \yii\db\ActiveRecord
 {

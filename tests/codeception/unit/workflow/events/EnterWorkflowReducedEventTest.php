@@ -7,9 +7,9 @@ use yii\codeception\TestCase;
 use yii\base\InvalidConfigException;
 
 use tests\codeception\unit\models\Item04;
-use raoul2000\workflow\base\SimpleWorkflowBehavior;
-use raoul2000\workflow\events\WorkflowEvent;
-use raoul2000\workflow\base\WorkflowException;
+use hjp1011\workflow\base\SimpleWorkflowBehavior;
+use hjp1011\workflow\events\WorkflowEvent;
+use hjp1011\workflow\base\WorkflowException;
 
 class EnterWorkflowReducedEventTest extends TestCase
 {
@@ -22,14 +22,14 @@ class EnterWorkflowReducedEventTest extends TestCase
 		$this->eventsAfter = [];
 
 		Yii::$app->set('workflowSource',[
-			'class'=> 'raoul2000\workflow\source\file\WorkflowFileSource',
+			'class'=> 'hjp1011\workflow\source\file\WorkflowFileSource',
 				'definitionLoader' => [
-					'class' => 'raoul2000\workflow\source\file\PhpClassLoader',
+					'class' => 'hjp1011\workflow\source\file\PhpClassLoader',
 					'namespace' => 'tests\codeception\unit\models'
 				]
 		]);
 		Yii::$app->set('eventSequence',[
-			'class'=> 'raoul2000\workflow\events\ReducedEventSequence',
+			'class'=> 'hjp1011\workflow\events\ReducedEventSequence',
 		]);
 
 		$this->model = new Item04();

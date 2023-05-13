@@ -3,7 +3,7 @@
 namespace tests\codeception\unit\models;
 
 use Yii;
-use raoul2000\workflow\base\SimpleWorkflowBehavior;
+use hjp1011\workflow\base\SimpleWorkflowBehavior;
 
 /**
  * This is the model class for table "item".

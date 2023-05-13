@@ -6,7 +6,7 @@ use Yii;
 use yii\codeception\DbTestCase;
 use tests\codeception\unit\models\Item01;
 use yii\base\InvalidConfigException;
-use raoul2000\workflow\base\SimpleWorkflowBehavior;
+use hjp1011\workflow\base\SimpleWorkflowBehavior;
 use tests\codeception\unit\fixtures\ItemFixture04;
 use tests\codeception\unit\models\Item04;
 
@@ -24,9 +24,9 @@ class EnterWorkflowTest extends DbTestCase
 	{
 		parent::setUp();
 		Yii::$app->set('workflowSource',[
-			'class'=> 'raoul2000\workflow\source\file\WorkflowFileSource',
+			'class'=> 'hjp1011\workflow\source\file\WorkflowFileSource',
 			'definitionLoader' => [
-				'class' => 'raoul2000\workflow\source\file\PhpClassLoader',
+				'class' => 'hjp1011\workflow\source\file\PhpClassLoader',
 				'namespace' => 'tests\codeception\unit\models'
 			]
 		]);
@@ -68,7 +68,7 @@ class EnterWorkflowTest extends DbTestCase
     		verify('current status is not set',$item->hasWorkflowStatus())->false();
     		$item->sendToStatus('Item04Workflow/A');
     		verify('current status is set',$item->hasWorkflowStatus())->true();
-			$this->expectException('raoul2000\workflow\base\WorkflowException');
+			$this->expectException('hjp1011\workflow\base\WorkflowException');
 			$this->expectExceptionMessage('Model already in a workflow');
 			$item->enterWorkflow();
 		});
@@ -80,7 +80,7 @@ class EnterWorkflowTest extends DbTestCase
 		$this->specify('enterWorkflow fails if workflow not found for ID',function() use($item) {
 
     		$this->expectException(
-    			'raoul2000\workflow\base\WorkflowException'
+    			'hjp1011\workflow\base\WorkflowException'
 			);
     		$this->expectExceptionMessage(
     			'failed to load workflow definition : Class tests\codeception\unit\models\INVALIDID does not exist'

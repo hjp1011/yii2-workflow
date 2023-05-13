@@ -5,7 +5,7 @@ use Yii;
 use yii\base\Behavior;
 use yii\db\ActiveRecord;
 use yii\base\Event;
-use raoul2000\workflow\events\WorkflowEvent;
+use hjp1011\workflow\events\WorkflowEvent;
 
 class Item06Behavior  extends Behavior
 {

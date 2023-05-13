@@ -3,8 +3,8 @@
 namespace tests\codeception\unit\models;
 
 use Yii;
-use raoul2000\workflow\validation\WorkflowScenario;
-use raoul2000\workflow\validation\WorkflowValidator;
+use hjp1011\workflow\validation\WorkflowScenario;
+use hjp1011\workflow\validation\WorkflowValidator;
 /**
  * This is the model class for table "item".
  *
@@ -31,11 +31,11 @@ class Item08 extends \yii\db\ActiveRecord
     {
     	return [
     		'w1' => [
-    			'class' => \raoul2000\workflow\base\SimpleWorkflowBehavior::className(),
+    			'class' => \hjp1011\workflow\base\SimpleWorkflowBehavior::className(),
     			'defaultWorkflowId' => 'Item08Workflow1'
     		],    		
     		'w2' => [
-    			'class' => \raoul2000\workflow\base\SimpleWorkflowBehavior::className(),
+    			'class' => \hjp1011\workflow\base\SimpleWorkflowBehavior::className(),
     			'statusAttribute' => 'status_ex',
     			'defaultWorkflowId' => 'Item08Workflow2'
     		]

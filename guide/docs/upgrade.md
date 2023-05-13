@@ -4,7 +4,7 @@ If you have been using the [previous version of *SimpleWorkflow*](http://s172418
 
 Main improvements in v2.x aimed to clearly separate the workflow definition in terms of status and transition, from the business logic that implements the way a model is going to behave inside a workflow. By doing so, the same workflow can be easily used by models of different types, each one having its own behavior.  
 
-Another goal was to provide maximum flexibility in the way the developer is going to setup its app architecture. For instance the workflow definition can be embedded in any PHP class that implements the appropriate interface (`raoul2000\workflow\source\file\IWorkflowDefinitionProvider`). Moreover almost all classes can be overloaded and new ones created to implements specific needs not covered by the current version.
+Another goal was to provide maximum flexibility in the way the developer is going to setup its app architecture. For instance the workflow definition can be embedded in any PHP class that implements the appropriate interface (`hjp1011\workflow\source\file\IWorkflowDefinitionProvider`). Moreover almost all classes can be overloaded and new ones created to implements specific needs not covered by the current version.
 
 
 ## Principles
@@ -17,7 +17,7 @@ Not that much to say here, as there is no change in the way the *SimpleWorkflowB
 A transition is a directed link between to statuses : the *start* and the *end* status.  
 
 ## Definition
-The workflow definition required by the [[raoul2000\workflow\source\file\WorkflowFileSource|WorkflowFileSource]] component differs from previous version :
+The workflow definition required by the [[hjp1011\workflow\source\file\WorkflowFileSource|WorkflowFileSource]] component differs from previous version :
 
 - key `initial` is replaced by `initialStatusId`
 - key `node` is replaced by `status`

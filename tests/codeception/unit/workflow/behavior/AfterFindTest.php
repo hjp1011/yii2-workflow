@@ -6,7 +6,7 @@ use Yii;
 use yii\codeception\TestCase;
 use tests\codeception\unit\models\Item01;
 use yii\base\InvalidConfigException;
-use raoul2000\workflow\base\SimpleWorkflowBehavior;
+use hjp1011\workflow\base\SimpleWorkflowBehavior;
 use yii\codeception\DbTestCase;
 use tests\codeception\unit\fixtures\ItemFixture04;
 
@@ -25,9 +25,9 @@ class AfterFindTest extends DbTestCase
 	{
 		parent::setUp();
 		Yii::$app->set('workflowSource',[
-			'class'=> 'raoul2000\workflow\source\file\WorkflowFileSource',
+			'class'=> 'hjp1011\workflow\source\file\WorkflowFileSource',
 				'definitionLoader' => [
-					'class' => 'raoul2000\workflow\source\file\PhpClassLoader',
+					'class' => 'hjp1011\workflow\source\file\PhpClassLoader',
 					'namespace' => 'tests\codeception\unit\models'
 				]
 		]);
@@ -48,7 +48,7 @@ class AfterFindTest extends DbTestCase
 		$this->specify('item2 cannot be read from db (invalid status)', function() {
 
 			$this->assertThrowsWithMessage(
-				'raoul2000\workflow\base\WorkflowException' ,
+				'hjp1011\workflow\base\WorkflowException' ,
 				"Not a valid status id : incorrect status local id format in 'Item04Workflow/NOT_FOUND'",
 				function() {
 					$this->items('item2');

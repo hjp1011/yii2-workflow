@@ -44,7 +44,7 @@ Below is a list of currently supported scenario names :
 	</tr>
 </table>
 
-As you can see, scenario names are quite self explanatory ! To assist you in using workflow scenario names, you can use the class `raoul2000\workflow\validation\WorkflowScenario`.
+As you can see, scenario names are quite self explanatory ! To assist you in using workflow scenario names, you can use the class `hjp1011\workflow\validation\WorkflowScenario`.
 
 For instance :
 
@@ -61,7 +61,7 @@ echo WorkflowScenario::leaveWorkflow('W1'); 			// "leave workflow {W1}"
 In the example below we are defining several validation rules applied to the model during its life-cycle through the workflow it is assigned to.
 
 ```php
-use raoul2000\workflow\validation\WorkflowValidator;
+use hjp1011\workflow\validation\WorkflowValidator;
 /**
  * @property integer $id
  * @property string $col_status
@@ -77,7 +77,7 @@ class Post extends \yii\db\ActiveRecord
     	// declare the SimpleWorkflowBehavior.
         return [
         	'workflow' => [
-        		'class' => \raoul2000\workflow\base\SimpleWorkflowBehavior::className(),
+        		'class' => \hjp1011\workflow\base\SimpleWorkflowBehavior::className(),
         		'defaultWorkflowId'      => 'post',
         		'statusAttribute'        => 'col_status',
         		'propagateErrorsToModel' => true
@@ -88,7 +88,7 @@ class Post extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-        	[['col_status'],raoul2000\workflow\validation\WorkflowValidator::className()],
+        	[['col_status'],hjp1011\workflow\validation\WorkflowValidator::className()],
 
         	// rule 1 :  the 'title' is always required
         	['title','required'],

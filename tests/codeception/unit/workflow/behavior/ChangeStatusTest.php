@@ -6,7 +6,7 @@ use Yii;
 use yii\codeception\DbTestCase;
 use tests\codeception\unit\models\Item01;
 use yii\base\InvalidConfigException;
-use raoul2000\workflow\base\SimpleWorkflowBehavior;
+use hjp1011\workflow\base\SimpleWorkflowBehavior;
 use tests\codeception\unit\fixtures\ItemFixture04;
 
 class ChangeStatusTest extends DbTestCase
@@ -23,9 +23,9 @@ class ChangeStatusTest extends DbTestCase
 	{
 		parent::setUp();
 		Yii::$app->set('workflowSource',[
-			'class'=> 'raoul2000\workflow\source\file\WorkflowFileSource',
+			'class'=> 'hjp1011\workflow\source\file\WorkflowFileSource',
 			'definitionLoader' => [
-				'class' => 'raoul2000\workflow\source\file\PhpClassLoader',
+				'class' => 'hjp1011\workflow\source\file\PhpClassLoader',
 				'namespace' => 'tests\codeception\unit\models'
 			]
 		]);
@@ -42,7 +42,7 @@ class ChangeStatusTest extends DbTestCase
     	$this->assertTrue($item->workflowStatus->getId() == 'Item04Workflow/B');
 
     	$this->expectException(
-    		'raoul2000\workflow\base\WorkflowException'
+    		'hjp1011\workflow\base\WorkflowException'
     	);
     	$this->expectExceptionMessage(
     		'No status found with id Item04Workflow/Z'
@@ -58,7 +58,7 @@ class ChangeStatusTest extends DbTestCase
     	$this->assertTrue($item->workflowStatus->getId() == 'Item04Workflow/B');
 
     	$this->expectException(
-    		'raoul2000\workflow\base\WorkflowException'
+    		'hjp1011\workflow\base\WorkflowException'
     	);
     	$this->expectExceptionMessage(
     		'No status found with id Item04Workflow/Z'

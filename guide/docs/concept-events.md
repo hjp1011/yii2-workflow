@@ -6,7 +6,7 @@ Basically when *something interesting happens* to a model inside a workflow, an 
 
 ## Event Sequence
 
-The default event sequence used by the *SimpleWorkflow* behavior is the *BasicEventSequence* available in the namespace `\raoul2000\workflow\events`. Below is a list of events fired by this sequence :
+The default event sequence used by the *SimpleWorkflow* behavior is the *BasicEventSequence* available in the namespace `\hjp1011\workflow\events`. Below is a list of events fired by this sequence :
 
 <table width="100%">
 	<tr>
@@ -55,7 +55,7 @@ Two other event sequences are also available in the same namespace :
 - ReducedEventSequence
 - ExtendedEventSequence
 
-Of course you can create your own event sequence if the ones provided don't meet your needs. To do so, simply create a class that implements the `raoul2000\workflow\events\IEventSequence` interface (see below).
+Of course you can create your own event sequence if the ones provided don't meet your needs. To do so, simply create a class that implements the `hjp1011\workflow\events\IEventSequence` interface (see below).
 
 
 ## Configuration
@@ -76,7 +76,7 @@ $config = [
     	// the default event sequence component is configured as a ReducedEventSequence
     	// and not a BasicEventSequence anymore
         'eventSequence' => [
-          'class' => '\raoul2000\workflow\events\ReducedEventSequence',
+          'class' => '\hjp1011\workflow\events\ReducedEventSequence',
         ]
    // ...
 ```        
@@ -93,7 +93,7 @@ $config = [
     // ....
     'components' => [
         'myReducedEventSequence' => [
-          'class' => '\raoul2000\workflow\events\ReducedEventSequence',
+          'class' => '\hjp1011\workflow\events\ReducedEventSequence',
         ]
    // ...
 ```  
@@ -109,7 +109,7 @@ class Post extends \yii\db\ActiveRecord
     {
     	return [
     		[
-				'class' => \raoul2000\workflow\base\SimpleWorkflowBehavior::className(),
+				'class' => \hjp1011\workflow\base\SimpleWorkflowBehavior::className(),
 				'eventSequence' => 'myReducedEventSequence'
 			]
     	];
@@ -129,7 +129,7 @@ class Post extends \yii\db\ActiveRecord
     {
     	return [
 			[
-				'class' => \raoul2000\workflow\base\SimpleWorkflowBehavior::className(),
+				'class' => \hjp1011\workflow\base\SimpleWorkflowBehavior::className(),
 				'eventSequence' => null	// disable all SimpleWorkflow Events for Post instances
 			]
     	];
@@ -139,7 +139,7 @@ class Post extends \yii\db\ActiveRecord
 
 ## Event Object
 
-All events fired are instances of the `raoul2000\workflow\events\WorkflowEvent` class which provides all the method needed to get informations on the event that just occured.
+All events fired are instances of the `hjp1011\workflow\events\WorkflowEvent` class which provides all the method needed to get informations on the event that just occured.
 
 - `getStartStatus()` : returns the Status instance that the model is leaving. If the WorkflowEvent is fired because the model *enters* into a workflow, this method returns `null`.
 - `getEndStatus()` : returns the Status instance that the model is reaching. If the WorkflowEvent is fired because the model *leaves* a workflow, this method returns `null`.
@@ -154,7 +154,7 @@ A event handler is used to implement a specific process on any of the events in 
 In the example below, we are attaching an handler for the event that is fired when a Post instance goes from the status *draft* to the status *correction*. When this happens, we have decided to send a mail.
 
 ```php
-use raoul2000\workflow\events\WorkflowEvent;
+use hjp1011\workflow\events\WorkflowEvent;
 
 class Post extends \yii\db\ActiveRecord
 {
@@ -165,7 +165,7 @@ class Post extends \yii\db\ActiveRecord
 			[$this, 'sendMail']
 		);
 	}
-	// $event is an instance of raoul2000\workflow\events\WorkflowEvent
+	// $event is an instance of hjp1011\workflow\events\WorkflowEvent
 	public function sendMail($event)
 	{
 		MailingService::sendMailToCorrector(
@@ -183,7 +183,7 @@ Each event fired by the *SimpleWorkflowBehavior* can be of 2 types : **before** 
 In the following example, an event handler is attached to be invoked *before* a Post instance enters into the status 'Post/published'. This handler checks that the user who is performing the action has the appropriate permission and if not it *invalidates* the event : the Post instance will not be able to reach the status 'W1/A', the transition is blocked.
 
 ```php
-use raoul2000\workflow\events\WorkflowEvent;
+use hjp1011\workflow\events\WorkflowEvent;
 
 class Post extends \yii\db\ActiveRecord
 {
@@ -226,7 +226,7 @@ attaching a handler to the event *afterChangeStatusFrom{PostWorkflow/draft}to{Po
 
 ## Getting The Event Sequence
 
-Once *SimpleWorkflowBehavior* is attached to model, it injects several method that you can use directly from a model instance (this is [standard Yii2 feature](http://www.yiiframework.com/doc-2.0/guide-concept-behaviors.html#using-behaviors)). Among these methods, `getEventSequence()` is particularly useful when working with events. This method returns an array describing all the events that will be fired if the model is sent to the status passed as argument. This array has 2 keys : *before* and *after*. The value of each key is an array of `raoul2000\workflow\events\WorkflowEvent` objects representing the event that will be fired before and after the transition.
+Once *SimpleWorkflowBehavior* is attached to model, it injects several method that you can use directly from a model instance (this is [standard Yii2 feature](http://www.yiiframework.com/doc-2.0/guide-concept-behaviors.html#using-behaviors)). Among these methods, `getEventSequence()` is particularly useful when working with events. This method returns an array describing all the events that will be fired if the model is sent to the status passed as argument. This array has 2 keys : *before* and *after*. The value of each key is an array of `hjp1011\workflow\events\WorkflowEvent` objects representing the event that will be fired before and after the transition.
 
 Let's see that on the example below where we assume that the `$post` instance in currently in status *ready*. This snippet is displaying the ordered list of event that will be fired when `$post` is sent to status *published*.
 
@@ -252,7 +252,7 @@ Remember that events will be fired in this exact order until the last event or u
 
 ## Event Name Helper
 
-The class `\raoul2000\workflow\events\WorkflowEvent` includes a set of static method that you can use to easely create workflow event names.
+The class `\hjp1011\workflow\events\WorkflowEvent` includes a set of static method that you can use to easely create workflow event names.
 It's even more useful if your favorite IDE supports auto-completion ! The example below is equivalent to the previous one except that the event name is created at runtime by a call to `WorkflowEvent::beforeEnterStatus('W1/A')`.
 
 ```php
@@ -270,7 +270,7 @@ $this->on(
 We already know that *SimpleWorkflow* includes 3 event sequences, from the most simple to the most *verbose* one (the default is the `BasicEventSequence`). However, you may want to create your own event sequence if for instance you want to optimize the amount of events
 fired and actually handled by your implementation.
 
-To define your own event sequence you must create a class that implements the `\raoul2000\workflow\events\IEventSequence` interface. There are three methods declared in this interface, each one being invoked at runtime, when a specific event occurs in the workflow :
+To define your own event sequence you must create a class that implements the `\hjp1011\workflow\events\IEventSequence` interface. There are three methods declared in this interface, each one being invoked at runtime, when a specific event occurs in the workflow :
 
 - *createEnterWorkflowSequence* : invoked when a model enters into a workflow
 - *createLeaveWorkflowSequence* : invoked when a model leaves a workflow

@@ -5,10 +5,10 @@ use Yii;
 use yii\codeception\TestCase;
 use yii\base\InvalidConfigException;
 use tests\codeception\unit\models\Item01;
-use raoul2000\workflow\base\Workflow;
-use raoul2000\workflow\base\Status;
-use raoul2000\workflow\base\Transition;
-use raoul2000\workflow\base\StatusIdConverter;
+use hjp1011\workflow\base\Workflow;
+use hjp1011\workflow\base\Status;
+use hjp1011\workflow\base\Transition;
+use hjp1011\workflow\base\StatusIdConverter;
 
 class StatusIdConverterTest extends TestCase
 {
@@ -20,19 +20,19 @@ class StatusIdConverterTest extends TestCase
 
 		$this->specify('a map parameter must be provided', function(){
 			$this->assertThrowsWithMessage( 'yii\base\InvalidConfigException' ,'missing map', function() {
-				Yii::createObject(['class'=> 'raoul2000\workflow\base\StatusIdConverter']);
+				Yii::createObject(['class'=> 'hjp1011\workflow\base\StatusIdConverter']);
 			});
 		});
 
 		$this->specify(' the map parameter must be an array', function() {
 			$this->assertThrowsWithMessage( 'yii\base\InvalidConfigException',  'The map must be an array', function() {
-				Yii::createObject(['class'=> 'raoul2000\workflow\base\StatusIdConverter', 'map' => 'string']);
+				Yii::createObject(['class'=> 'hjp1011\workflow\base\StatusIdConverter', 'map' => 'string']);
 			});
 		});
 
 		$this->specify(' the map parameter must be a non empty array', function() {
 			$this->assertThrowsWithMessage('yii\base\InvalidConfigException',  'missing map', function() {
-				Yii::createObject(['class'=> 'raoul2000\workflow\base\StatusIdConverter', 'map' => [] ]);
+				Yii::createObject(['class'=> 'hjp1011\workflow\base\StatusIdConverter', 'map' => [] ]);
 			});
 		});
 	}
@@ -41,7 +41,7 @@ class StatusIdConverterTest extends TestCase
 	{
 		$this->specify('a status converter is created successfully', function(){
 			Yii::createObject([
-				'class'=> 'raoul2000\workflow\base\StatusIdConverter',
+				'class'=> 'hjp1011\workflow\base\StatusIdConverter',
 				'map' => [
 					'Post/ready' => '1',
 					'Post/draft' => '2',
@@ -55,7 +55,7 @@ class StatusIdConverterTest extends TestCase
 	public function testConvertionSuccess()
 	{
 		$c = Yii::createObject([
-			'class'=> 'raoul2000\workflow\base\StatusIdConverter',
+			'class'=> 'hjp1011\workflow\base\StatusIdConverter',
 			'map' => [
 				'Post/ready' => '1',
 				'Post/draft' => '2',
@@ -81,7 +81,7 @@ class StatusIdConverterTest extends TestCase
 	public function testConvertionRuntimeMapAssignement()
 	{
 		$c = Yii::createObject([
-			'class'=> 'raoul2000\workflow\base\StatusIdConverter',
+			'class'=> 'hjp1011\workflow\base\StatusIdConverter',
 			'map' => [
 				'Post/ready' => '1',
 				'Post/draft' => '2',
@@ -114,7 +114,7 @@ class StatusIdConverterTest extends TestCase
 	{
 
 		$c = Yii::createObject([
-			'class'=> 'raoul2000\workflow\base\StatusIdConverter',
+			'class'=> 'hjp1011\workflow\base\StatusIdConverter',
 			'map' => [
 				'Post/ready' => '1',
 			]

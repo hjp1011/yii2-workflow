@@ -1,5 +1,5 @@
 <?php
-namespace raoul2000\workflow\base;
+namespace hjp1011\workflow\base;
 
 use yii\base\InvalidConfigException;
 /**
@@ -7,7 +7,7 @@ use yii\base\InvalidConfigException;
  * The Workflow class inherits from **WorkflowBaseObject** that provides support for **metadata** attributes and workflow
  * source access.
  *
- * @see \raoul2000\workflow\base\WorkflowBaseObject
+ * @see \hjp1011\workflow\base\WorkflowBaseObject
  */
 class Workflow extends WorkflowBaseObject implements WorkflowInterface
 {
@@ -40,14 +40,14 @@ class Workflow extends WorkflowBaseObject implements WorkflowInterface
 		parent::__construct($config);
 	}
 	/**
-	 * @see \raoul2000\workflow\base\WorkflowBaseObject::getId()
+	 * @see \hjp1011\workflow\base\WorkflowBaseObject::getId()
 	 */
 	public function getId()
 	{
 		return $this->_id;
 	}
 	/**
-	 * @see \raoul2000\workflow\base\WorkflowInterface::getInitialStatusId()
+	 * @see \hjp1011\workflow\base\WorkflowInterface::getInitialStatusId()
 	 */
 	public function getInitialStatusId()
 	{
@@ -55,7 +55,7 @@ class Workflow extends WorkflowBaseObject implements WorkflowInterface
 	}
 
 	/**
-	 * @see \raoul2000\workflow\base\WorkflowInterface::getInitialStatus()
+	 * @see \hjp1011\workflow\base\WorkflowInterface::getInitialStatus()
 	 */
 	public function getInitialStatus() {
 		if ( $this->getSource() === null) {
@@ -65,7 +65,7 @@ class Workflow extends WorkflowBaseObject implements WorkflowInterface
 	}
 
 	/**
-	 * @see \raoul2000\workflow\base\WorkflowInterface::getAllStatuses()
+	 * @see \hjp1011\workflow\base\WorkflowInterface::getAllStatuses()
 	 */
 	public function getAllStatuses() {
 		if ( $this->getSource() === null) {

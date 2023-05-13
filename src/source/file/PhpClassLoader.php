@@ -1,9 +1,9 @@
 <?php
 
-namespace raoul2000\workflow\source\file;
+namespace hjp1011\workflow\source\file;
 
 use Yii;
-use raoul2000\workflow\base\WorkflowException;
+use hjp1011\workflow\base\WorkflowException;
 
 /**
  * This class is responsible for locating and loading a workflow definition stored as a PHP class.
@@ -40,7 +40,7 @@ class PhpClassLoader extends WorkflowDefinitionLoader {
 		}
 		if( ! $defProvider instanceof IWorkflowDefinitionProvider ) {
 			throw new WorkflowException('Invalid workflow provider : class '.$wfClassname
-				.' doesn\'t implement \raoul2000\workflow\source\file\IWorkflowDefinitionProvider');
+				.' doesn\'t implement \hjp1011\workflow\source\file\IWorkflowDefinitionProvider');
 		}
 
 		return $this->parse($workflowId, $defProvider->getDefinition(), $source);

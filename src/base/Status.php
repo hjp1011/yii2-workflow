@@ -1,5 +1,5 @@
 <?php
-namespace raoul2000\workflow\base;
+namespace hjp1011\workflow\base;
 
 use Yii;
 use yii\base\InvalidConfigException;
@@ -96,7 +96,7 @@ class Status extends WorkflowBaseObject implements StatusInterface
 	}
 	/**
 	 * 
-	 * @see \raoul2000\workflow\base\StatusInterface::getTransitions()
+	 * @see \hjp1011\workflow\base\StatusInterface::getTransitions()
 	 */
 	public function getTransitions()
 	{
@@ -106,7 +106,7 @@ class Status extends WorkflowBaseObject implements StatusInterface
 		return $this->getSource()->getTransitions($this->getId());
 	}
 	/**
-	 * @see \raoul2000\workflow\base\StatusInterface::getWorkflow()
+	 * @see \hjp1011\workflow\base\StatusInterface::getWorkflow()
 	 */
 	public function getWorkflow()
 	{
@@ -116,7 +116,7 @@ class Status extends WorkflowBaseObject implements StatusInterface
 		return $this->getSource()->getWorkflow($this->getWorkflowId());		
 	}
 	/**
-	 * @see \raoul2000\workflow\base\StatusInterface::isInitialStatus()
+	 * @see \hjp1011\workflow\base\StatusInterface::isInitialStatus()
 	 */	
 	public function isInitialStatus()
 	{

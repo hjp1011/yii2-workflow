@@ -1,5 +1,5 @@
 <?php
-namespace raoul2000\workflow\source\file;
+namespace hjp1011\workflow\source\file;
 
 /**
  * This interface must be implemented by any PHP class that

@@ -1,9 +1,9 @@
 <?php
-namespace raoul2000\workflow\base;
+namespace hjp1011\workflow\base;
 
 use yii\base\BaseObject;
 use yii\base\InvalidConfigException;
-use raoul2000\workflow\source\IWorkflowSource;
+use hjp1011\workflow\source\IWorkflowSource;
 
 
 /**
@@ -38,7 +38,7 @@ abstract class WorkflowBaseObject extends BaseObject
 		if( array_key_exists('source', $config) ) {
 			$this->_source = $config['source'];
 			if( ! $this->_source instanceof IWorkflowSource){
-				throw new InvalidConfigException('The "source" property must implement interface raoul2000\workflow\source\IWorkflowSource');
+				throw new InvalidConfigException('The "source" property must implement interface hjp1011\workflow\source\IWorkflowSource');
 			}
 			unset($config['source']);
 		}
@@ -86,7 +86,7 @@ abstract class WorkflowBaseObject extends BaseObject
 	 * Test if a metadata parameter is defined.
 	 * 
 	 * @param string $paramName the metadata parameter name
-	 * @throws \raoul2000\workflow\base\WorkflowException
+	 * @throws \hjp1011\workflow\base\WorkflowException
 	 * @return boolean TRUE if the metadata parameter exists, FALSE otherwise
 	 */
 	public function hasMetadata($paramName)
@@ -99,7 +99,7 @@ abstract class WorkflowBaseObject extends BaseObject
 	/**
 	 * Returns the source workflow component used to create this instance.
 	 * 
-	 * @return \raoul2000\workflow\source\IWorkflowSource the source instance or null if no 
+	 * @return \hjp1011\workflow\source\IWorkflowSource the source instance or null if no 
 	 * source was been provided
 	 */
 	public function getSource()

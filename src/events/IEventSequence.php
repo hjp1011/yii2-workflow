@@ -1,5 +1,5 @@
 <?php
-namespace raoul2000\workflow\events;
+namespace hjp1011\workflow\events;
 
 /**
  *
@@ -12,20 +12,20 @@ namespace raoul2000\workflow\events;
  *</ul>
  *
  * For each one of these methods, the implementation must returns with 2 keys : **before** and **after**. For each
- * key, the value is an array of `\raoul2000\workflow\events\WorkflowEvent` representing the sequence of event
+ * key, the value is an array of `\hjp1011\workflow\events\WorkflowEvent` representing the sequence of event
  * to fire *before* or *after* the workflow event occurs.
  *
  * Two event sequences implementations are provided :
  *
- * - {@link \raoul2000\workflow\events\BasicEventSequence}
- * - {@link \raoul2000\workflow\events\ExtendedEventSequence}
+ * - {@link \hjp1011\workflow\events\BasicEventSequence}
+ * - {@link \hjp1011\workflow\events\ExtendedEventSequence}
  */
 interface IEventSequence
 {
 	/**
 	 * Creates and returns the sequence of events that occurs when a model enters into a workflow.
 	 *
-	 * @param \raoul2000\workflow\base\StatusInterface $initalStatus the status used to enter into the workflow (the <i>initial status</i>)
+	 * @param \hjp1011\workflow\base\StatusInterface $initalStatus the status used to enter into the workflow (the <i>initial status</i>)
 	 * @param Object $sender
 	 * @return array
 	 */
@@ -33,7 +33,7 @@ interface IEventSequence
 	/**
 	 * Creates and returns the sequence of events that occurs when a model leaves a workflow.
 	 *
-	 * @param \raoul2000\workflow\base\StatusInterface $finalStatus the status that the model last visited in the workflow it is leaving
+	 * @param \hjp1011\workflow\base\StatusInterface $finalStatus the status that the model last visited in the workflow it is leaving
 	 * (the <i>final status</i>)
 	 * @param Object $sender
 	 * @return array
@@ -43,7 +43,7 @@ interface IEventSequence
 	 * Creates and returns the sequence of events that occurs when a model changes
 	 * from an existing status to another existing status.
 	 *
-	 * @param \raoul2000\workflow\base\TransitionInterface $transition the transition representing the status
+	 * @param \hjp1011\workflow\base\TransitionInterface $transition the transition representing the status
 	 * change
 	 * @param Object $sender
 	 * @return array

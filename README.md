@@ -1,9 +1,9 @@
 # yii2-workflow
 
-[![Build](https://travis-ci.org/raoul2000/yii2-workflow.svg?branch=master)](https://travis-ci.org/raoul2000/yii2-workflow)
-[![Latest Stable Version](https://poser.pugx.org/raoul2000/yii2-workflow/v/stable)](https://packagist.org/packages/raoul2000/yii2-workflow)
-[![Total Downloads](https://poser.pugx.org/raoul2000/yii2-workflow/downloads)](https://packagist.org/packages/raoul2000/yii2-workflow)
-[![License](https://poser.pugx.org/raoul2000/yii2-workflow/license)](https://packagist.org/packages/raoul2000/yii2-workflow)
+[![Build](https://travis-ci.org/hjp1011/yii2-workflow.svg?branch=master)](https://travis-ci.org/hjp1011/yii2-workflow)
+[![Latest Stable Version](https://poser.pugx.org/hjp1011/yii2-workflow/v/stable)](https://packagist.org/packages/hjp1011/yii2-workflow)
+[![Total Downloads](https://poser.pugx.org/hjp1011/yii2-workflow/downloads)](https://packagist.org/packages/hjp1011/yii2-workflow)
+[![License](https://poser.pugx.org/hjp1011/yii2-workflow/license)](https://packagist.org/packages/hjp1011/yii2-workflow)
 
 ## Installation
 
@@ -12,13 +12,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist raoul2000/yii2-workflow "*"
+php composer.phar require --prefer-dist hjp1011/yii2-workflow "*"
 ```
 
 or add
 
 ```
-"raoul2000/yii2-workflow": "*"
+"hjp1011/yii2-workflow": "*"
 ```
 
 to the require section of your `composer.json` file.
@@ -32,7 +32,7 @@ flexible so to adapt to a lot of execution contexts... well at least that was my
 
 ## Create A Workflow
 
-A workflow is defined as a PHP class that implements the `\raoul2000\workflow\source\file\IWorkflowDefinitionProvider` interface. which
+A workflow is defined as a PHP class that implements the `\hjp1011\workflow\source\file\IWorkflowDefinitionProvider` interface. which
 declares the *getDefinition()* method. This method must return an array representing the workflow definition.
 
 Let's define a very *simple workflow* that will be used to manage posts in a basic blog system.
@@ -45,7 +45,7 @@ Here is the PHP class that implements the definition for our workflow :
 ```php
 namespace app\models;
 
-class PostWorkflow implements \raoul2000\workflow\source\file\IWorkflowDefinitionProvider
+class PostWorkflow implements \hjp1011\workflow\source\file\IWorkflowDefinitionProvider
 {
 	public function getDefinition() {
 		return [
@@ -87,7 +87,7 @@ class Post extends \yii\db\ActiveRecord
     public function behaviors()
     {
     	return [
-			\raoul2000\workflow\base\SimpleWorkflowBehavior::className()
+			\hjp1011\workflow\base\SimpleWorkflowBehavior::className()
     	];
     }
     // ...
@@ -130,7 +130,7 @@ $post->sendToStatus('publish');	// danger zone !
 Game Over ! There is no transition between *deleted* and *publish*, and that's what *SimpleWorkflow* tries to explain to our
 fearless post object.
 
-	Workflow Exception – raoul2000\workflow\base\WorkflowException
+	Workflow Exception – hjp1011\workflow\base\WorkflowException
 	No transition found between status PostWorkflow/deleted and PostWorkflow/publish
 
 Yes, that's severe, but there was many ways to avoid this exception like for instance by first validating that the transition was possible.
@@ -141,15 +141,15 @@ This is just one way of using the *SimpleWorkflowBehavior* but there's much more
 
 You will find additional information there :
 
-- [yii2-workflow Usage Guide](http://raoul2000.github.io/yii2-workflow/)
-- [yii2-workflow Class Reference](http://raoul2000.github.io/yii2-workflow/class-ref/)
-- [Demo](http://raoul2000.ass-team.fr/index.php?r=workflow/status-history/update) : a simple example based on the *Post* use case.
+- [yii2-workflow Usage Guide](http://hjp1011.github.io/yii2-workflow/)
+- [yii2-workflow Class Reference](http://hjp1011.github.io/yii2-workflow/class-ref/)
+- [Demo](http://hjp1011.ass-team.fr/index.php?r=workflow/status-history/update) : a simple example based on the *Post* use case.
 
 You may also be interested in the following projects developed around yii2-workflow :
 
-- [yii2-workflow-view](https://github.com/raoul2000/yii2-workflow-view) : A Widget to display workflows ([demo](http://raoul2000.ass-team.fr/index.php?r=workflow/status-history/update))
+- [yii2-workflow-view](https://github.com/hjp1011/yii2-workflow-view) : A Widget to display workflows ([demo](http://hjp1011.ass-team.fr/index.php?r=workflow/status-history/update))
 - [yii2-workflow-manager](https://github.com/cornernote/yii2-workflow-manager) : A Module to manage workflows
-- [yii2-wizflow](https://github.com/raoul2000/yii2-wizflow) : a proof of concept that mixes the Wizard UI pattern with workflow ([Demo](http://raoul2000.ass-team.fr/index.php?r=workflow/wizflow/init))
+- [yii2-wizflow](https://github.com/hjp1011/yii2-wizflow) : a proof of concept that mixes the Wizard UI pattern with workflow ([Demo](http://hjp1011.ass-team.fr/index.php?r=workflow/wizflow/init))
 - ..and more to come
 
 License

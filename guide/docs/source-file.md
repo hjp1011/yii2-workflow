@@ -32,7 +32,7 @@ class Post extends \yii\db\ActiveRecord
     {
     	return [
     		[
-				'class' => '\raoul2000\workflow\base\SimpleWorkflowBehavior',
+				'class' => '\hjp1011\workflow\base\SimpleWorkflowBehavior',
 				'defaultWorkflowId' => 'MyWorkflow'
 			]
     	];
@@ -53,9 +53,9 @@ and set the namespace used by `PhpClassLoader` to the location where workflow de
 $config = [
     'components' => [
         'workflowSource' => [
-          'class' => 'raoul2000\workflow\source\file\WorkflowFileSource',
+          'class' => 'hjp1011\workflow\source\file\WorkflowFileSource',
           'definitionLoader' => [
-	          'class' => 'raoul2000\workflow\source\file\PhpClassLoader',
+	          'class' => 'hjp1011\workflow\source\file\PhpClassLoader',
 	          'namespace'  => '@app/models/workflows'
            ]
         ],
@@ -83,9 +83,9 @@ The `PhpArrayLoader` loads the workflow definitions from a PHP array stored in a
 $config = [
     'components' => [
         'workflowSource' => [
-          'class' => 'raoul2000\workflow\source\file\WorkflowFileSource',
+          'class' => 'hjp1011\workflow\source\file\WorkflowFileSource',
           'definitionLoader' => [
-	          'class' => 'raoul2000\workflow\source\file\PhpArrayLoader',
+	          'class' => 'hjp1011\workflow\source\file\PhpArrayLoader',
 	          'path'  => '@app/models/workflows'
            ]
         ],
@@ -129,9 +129,9 @@ Before being able to load a *Graphml* file, you must ensure that following requi
 $config = [
     'components' => [
         'workflowSource' => [
-          'class' => 'raoul2000\workflow\source\file\WorkflowFileSource',
+          'class' => 'hjp1011\workflow\source\file\WorkflowFileSource',
           'definitionLoader' => [
-	          'class' => 'raoul2000\workflow\source\file\GraphmlLoader',
+	          'class' => 'hjp1011\workflow\source\file\GraphmlLoader',
 	          'path'  => '@app/models/workflows'
            ]
         ],
@@ -170,7 +170,7 @@ To configure a cache component you must use the `definitionCache` parameter. For
 $config = [
     'components' => [
         'workflowSource' => [
-          'class' => 'raoul2000\workflow\source\file\WorkflowFileSource',
+          'class' => 'hjp1011\workflow\source\file\WorkflowFileSource',
           'definitionCache' => [
           		'class' => 'yii\caching\FileCache',
           ],

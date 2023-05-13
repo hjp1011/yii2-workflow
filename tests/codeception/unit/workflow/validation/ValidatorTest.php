@@ -5,7 +5,7 @@ use Yii;
 use yii\codeception\TestCase;
 use tests\codeception\unit\models\Item05;
 use yii\base\InvalidConfigException;
-use raoul2000\workflow\base\SimpleWorkflowBehavior;
+use hjp1011\workflow\base\SimpleWorkflowBehavior;
 use yii\codeception\DbTestCase;
 
 class ValidatorTest extends TestCase
@@ -16,9 +16,9 @@ class ValidatorTest extends TestCase
 	{
 		parent::setUp();
 		Yii::$app->set('workflowSource',[
-			'class'=> 'raoul2000\workflow\source\file\WorkflowFileSource',
+			'class'=> 'hjp1011\workflow\source\file\WorkflowFileSource',
 				'definitionLoader' => [
-					'class' => 'raoul2000\workflow\source\file\PhpClassLoader',
+					'class' => 'hjp1011\workflow\source\file\PhpClassLoader',
 					'namespace' => 'tests\codeception\unit\models'
 				]
 		]);

@@ -1,8 +1,8 @@
 <?php
-namespace raoul2000\workflow\events;
+namespace hjp1011\workflow\events;
 
 use yii\base\BaseObject;
-use raoul2000\workflow\events\IEventSequence;
+use hjp1011\workflow\events\IEventSequence;
 
 /**
  * The basic event sequence.

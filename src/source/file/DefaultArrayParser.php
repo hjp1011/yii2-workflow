@@ -1,9 +1,9 @@
 <?php
 
-namespace raoul2000\workflow\source\file;
+namespace hjp1011\workflow\source\file;
 
 use yii\helpers\ArrayHelper;
-use raoul2000\workflow\base\WorkflowValidationException;
+use hjp1011\workflow\base\WorkflowValidationException;
 use yii\helpers\VarDumper;
 
 /**
@@ -42,7 +42,7 @@ class DefaultArrayParser extends WorkflowArrayParser {
 	 *
 	 * @param string $wId
 	 * @param array $definition
-	 * @param raoul2000\workflow\source\file\WorkflowFileSource $source
+	 * @param hjp1011\workflow\source\file\WorkflowFileSource $source
 	 * @return array The parse workflow array definition
 	 * @throws WorkflowValidationException
 	 */

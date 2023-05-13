@@ -3,8 +3,8 @@
 namespace tests\codeception\unit\models;
 
 use Yii;
-use raoul2000\workflow\base\SimpleWorkflowBehavior;
-use raoul2000\workflow\validation\WorkflowScenario;
+use hjp1011\workflow\base\SimpleWorkflowBehavior;
+use hjp1011\workflow\validation\WorkflowScenario;
 
 /**
  * @property integer $id
@@ -26,7 +26,7 @@ class Item05 extends \yii\db\ActiveRecord
 
 	public function rules() {
 		return [
-			[['status'], '\raoul2000\workflow\validation\WorkflowValidator'],
+			[['status'], '\hjp1011\workflow\validation\WorkflowValidator'],
 			['name','required',
 				'on' => WorkflowScenario::changeStatus('Item05Workflow/new', 'Item05Workflow/correction') ],
 

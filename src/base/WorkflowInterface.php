@@ -1,5 +1,5 @@
 <?php
-namespace raoul2000\workflow\base;
+namespace hjp1011\workflow\base;
 
 /**
  * Interface implemented by Workflow objects.
@@ -22,15 +22,15 @@ interface WorkflowInterface
 	/**
 	 * Returns the initial status instance for this workflow.
 	 * 
-	 * @return \raoul2000\workflow\base\StatusInterface the initial status instance
-	 * @throws \raoul2000\workflow\base\WorkflowException when no source component is available
+	 * @return \hjp1011\workflow\base\StatusInterface the initial status instance
+	 * @throws \hjp1011\workflow\base\WorkflowException when no source component is available
 	 */
 	public function getInitialStatus();
 	/**
 	 * Returns an array containing all Status instances belonging to this workflow.
 	 * 
-	 * @return \raoul2000\workflow\base\StatusInterface[]  status list belonging to this workflow
-	 * @throws \raoul2000\workflow\base\WorkflowException when no source component is available
+	 * @return \hjp1011\workflow\base\StatusInterface[]  status list belonging to this workflow
+	 * @throws \hjp1011\workflow\base\WorkflowException when no source component is available
 	 */
 	public function getAllStatuses();	
 }

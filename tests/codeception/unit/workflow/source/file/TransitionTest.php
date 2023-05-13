@@ -7,10 +7,10 @@ use yii\codeception\TestCase;
 use tests\codeception\unit\models\Item01;
 use yii\base\InvalidConfigException;
 use yii\base\Exception;
-use raoul2000\workflow\source\file\WorkflowFileSource;
-use raoul2000\workflow\base\Status;
-use raoul2000\workflow\base\Transition;
-use raoul2000\workflow\base\Workflow;
+use hjp1011\workflow\source\file\WorkflowFileSource;
+use hjp1011\workflow\base\Status;
+use hjp1011\workflow\base\Transition;
+use hjp1011\workflow\base\Workflow;
 
 
 class TransitionTest extends TestCase
@@ -64,12 +64,12 @@ class TransitionTest extends TestCase
 			//$startId = key($tr);
 			$transition = current($tr);
 
-			verify('transition is a Transition', get_class($transition))->equals('raoul2000\workflow\base\Transition');
+			verify('transition is a Transition', get_class($transition))->equals('hjp1011\workflow\base\Transition');
 
-			verify('start status is a Status instance',get_class($transition->getStartStatus()) )->equals('raoul2000\workflow\base\Status');
+			verify('start status is a Status instance',get_class($transition->getStartStatus()) )->equals('hjp1011\workflow\base\Status');
 			verify('start status is A', $transition->getStartStatus()->getId())->equals('wid/A');
 
-			verify('end status is a Status instance',get_class($transition->getStartStatus()) )->equals('raoul2000\workflow\base\Status');
+			verify('end status is a Status instance',get_class($transition->getStartStatus()) )->equals('hjp1011\workflow\base\Status');
 			verify('end status is B', $transition->getEndStatus()->getId())->equals('wid/B');
     	});
     }

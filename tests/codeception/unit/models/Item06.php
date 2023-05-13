@@ -3,8 +3,8 @@
 namespace tests\codeception\unit\models;
 
 use Yii;
-use raoul2000\workflow\base\SimpleWorkflowBehavior;
-use raoul2000\workflow\events\WorkflowEvent;
+use hjp1011\workflow\base\SimpleWorkflowBehavior;
+use hjp1011\workflow\events\WorkflowEvent;
 
 /**
  * @property integer $id

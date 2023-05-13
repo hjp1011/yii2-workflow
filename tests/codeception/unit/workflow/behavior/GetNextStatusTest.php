@@ -6,10 +6,10 @@ use Yii;
 use yii\codeception\DbTestCase;
 use tests\codeception\unit\models\Item04;
 use yii\base\InvalidConfigException;
-use raoul2000\workflow\base\SimpleWorkflowBehavior;
+use hjp1011\workflow\base\SimpleWorkflowBehavior;
 use tests\codeception\unit\fixtures\ItemFixture04;
 use tests\codeception\unit\models\Item05;
-use raoul2000\workflow\events\WorkflowEvent;
+use hjp1011\workflow\events\WorkflowEvent;
 
 class GetNextStatusTest extends DbTestCase
 {
@@ -25,9 +25,9 @@ class GetNextStatusTest extends DbTestCase
 	{
 		parent::setUp();
 		Yii::$app->set('workflowSource',[
-			'class'=> 'raoul2000\workflow\source\file\WorkflowFileSource',
+			'class'=> 'hjp1011\workflow\source\file\WorkflowFileSource',
 			'definitionLoader' => [
-				'class' => 'raoul2000\workflow\source\file\PhpClassLoader',
+				'class' => 'hjp1011\workflow\source\file\PhpClassLoader',
 				'namespace' => 'tests\codeception\unit\models'
 			]
 		]);
@@ -90,7 +90,7 @@ class GetNextStatusTest extends DbTestCase
 
     	$this->specify('getNextStatus throws exception if default workflow Id is invalid',function() use ($item) {
 				$this->expectException(
-					'raoul2000\workflow\base\WorkflowException'
+					'hjp1011\workflow\base\WorkflowException'
 	    		);
 				$this->expectExceptionMessage(
 					"Invalid workflow Id : 'INVALID_ID'"
@@ -113,7 +113,7 @@ class GetNextStatusTest extends DbTestCase
     	$report = $model->getNextStatuses(false,true);
     	$this->assertCount(1, $report);
     	$this->assertArrayHasKey('Item04Workflow/A', $report);
-    	$this->assertInstanceOf('raoul2000\workflow\base\Status', $report['Item04Workflow/A']['status']);
+    	$this->assertInstanceOf('hjp1011\workflow\base\Status', $report['Item04Workflow/A']['status']);
 
     	$this->assertCount(3, $report['Item04Workflow/A']['event']);
 
@@ -153,7 +153,7 @@ class GetNextStatusTest extends DbTestCase
 
     	$this->assertArrayHasKey('Item05Workflow/correction', $report,'  a transition exists between "new" and "correction" ');
     	$this->assertTrue($report['Item05Workflow/correction']['isValid'] == false);
-    	$this->assertInstanceOf('raoul2000\workflow\base\Status', $report['Item05Workflow/correction']['status']);
+    	$this->assertInstanceOf('hjp1011\workflow\base\Status', $report['Item05Workflow/correction']['status']);
     	$this->assertEquals('Item05Workflow/correction', $report['Item05Workflow/correction']['status']->getId());
 
     	$this->assertEquals(
@@ -182,7 +182,7 @@ class GetNextStatusTest extends DbTestCase
 
     	$this->assertArrayHasKey('Item05Workflow/published',  $report,'  a transition exists between "new" and "published" ');
     	$this->assertTrue($report['Item05Workflow/published']['isValid'] == true);
-    	$this->assertInstanceOf('raoul2000\workflow\base\Status', $report['Item05Workflow/published']['status']);
+    	$this->assertInstanceOf('hjp1011\workflow\base\Status', $report['Item05Workflow/published']['status']);
     	$this->assertEquals('Item05Workflow/published', $report['Item05Workflow/published']['status']->getId());
 
     	$this->assertEquals(

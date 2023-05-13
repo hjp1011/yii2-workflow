@@ -1,13 +1,13 @@
 <?php
 namespace tests\codeception\unit\models;
 
-use raoul2000\workflow\base\StatusInterface;
+use hjp1011\workflow\base\StatusInterface;
 
 
 class MyStatus implements StatusInterface
 {
 	/* (non-PHPdoc)
-	 * @see \raoul2000\workflow\base\StatusInterface::getId()
+	 * @see \hjp1011\workflow\base\StatusInterface::getId()
 	 */
 	public function getId() {
 		// TODO: Auto-generated method stub
@@ -15,7 +15,7 @@ class MyStatus implements StatusInterface
 	}
 
 	/* (non-PHPdoc)
-	 * @see \raoul2000\workflow\base\StatusInterface::getLabel()
+	 * @see \hjp1011\workflow\base\StatusInterface::getLabel()
 	 */
 	public function getLabel() {
 		// TODO: Auto-generated method stub
@@ -23,7 +23,7 @@ class MyStatus implements StatusInterface
 	}
 
 	/* (non-PHPdoc)
-	 * @see \raoul2000\workflow\base\StatusInterface::getWorkflowId()
+	 * @see \hjp1011\workflow\base\StatusInterface::getWorkflowId()
 	 */
 	public function getWorkflowId() {
 		// TODO: Auto-generated method stub
@@ -31,7 +31,7 @@ class MyStatus implements StatusInterface
 	}
 
 	/* (non-PHPdoc)
-	 * @see \raoul2000\workflow\base\StatusInterface::getTransitions()
+	 * @see \hjp1011\workflow\base\StatusInterface::getTransitions()
 	 */
 	public function getTransitions() {
 		// TODO: Auto-generated method stub
@@ -39,7 +39,7 @@ class MyStatus implements StatusInterface
 	}
 	
 	/* (non-PHPdoc)
-	 * @see \raoul2000\workflow\base\StatusInterface::getWorkflow()
+	 * @see \hjp1011\workflow\base\StatusInterface::getWorkflow()
 	 */
 	public function getWorkflow() {
 		// TODO: Auto-generated method stub

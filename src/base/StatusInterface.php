@@ -1,5 +1,5 @@
 <?php
-namespace raoul2000\workflow\base;
+namespace hjp1011\workflow\base;
 
 /**
  * This interface must be implemented by Status objects.
@@ -29,12 +29,12 @@ interface StatusInterface
 	 * The array returned is indexed by the canonical id of the end status. Note that an empty array can be returned if this
 	 * status has no out-going transition (i.e. no other status can be reached).
 	 * 
-	 * @return \raoul2000\workflow\base\Transition[] the list of out-going transitions for this status. 
+	 * @return \hjp1011\workflow\base\Transition[] the list of out-going transitions for this status. 
 	 */
 	public function getTransitions();
 	/**
 	 * Returns the workflow instance this status belongs to
-	 * @return \raoul2000\workflow\base\Workflow the workflow instance
+	 * @return \hjp1011\workflow\base\Workflow the workflow instance
 	 */
 	public function getWorkflow();
 	/**

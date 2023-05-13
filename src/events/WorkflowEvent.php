@@ -1,8 +1,8 @@
 <?php
-namespace raoul2000\workflow\events;
+namespace hjp1011\workflow\events;
 
 use yii\base\ModelEvent;
-use raoul2000\workflow\base\WorkflowException;
+use hjp1011\workflow\base\WorkflowException;
 
 
 /**
@@ -50,7 +50,7 @@ class WorkflowEvent extends ModelEvent
 	 * Get the status the model what into before this event occured.
 	 * In case the model is entering the workflow, this method returns NULL.
 	 * 
-	 * @return \raoul2000\workflow\base\Status the start status involved in this event
+	 * @return \hjp1011\workflow\base\Status the start status involved in this event
 	 */
 	public function getStartStatus()
 	{
@@ -60,7 +60,7 @@ class WorkflowEvent extends ModelEvent
 	 * Get the final status reached by the model when this event occured.
 	 * In case the model is leaving the workflow, this method returns NULL.
 	 * 
-	 * @return \raoul2000\workflow\base\Status the end status involved in this event
+	 * @return \hjp1011\workflow\base\Status the end status involved in this event
 	 */
 	public function getEndStatus()
 	{
@@ -69,9 +69,9 @@ class WorkflowEvent extends ModelEvent
 	/**
 	 * Get the transition concerned by this event.
 	 * 
-	 * @return \raoul2000\workflow\Transition the transition involved in this event or NULL if no
+	 * @return \hjp1011\workflow\Transition the transition involved in this event or NULL if no
 	 * transition is available (e.g. EnterWorkflow, LeaveWorkflow)
-	 * @see \raoul2000\workflow\base\Transition
+	 * @see \hjp1011\workflow\base\Transition
 	 */
 	public function getTransition()
 	{

@@ -1,5 +1,5 @@
 <?php
-namespace raoul2000\workflow\base;
+namespace hjp1011\workflow\base;
 
 /**
  * A transition is a link between a start and an end status.
@@ -16,13 +16,13 @@ interface TransitionInterface
 	/**
 	 * Returns the Status instance that is the destination status.
 	 *
-	 * @return \raoul2000\workflow\base\StatusInterface the Status instance this transition ends to
+	 * @return \hjp1011\workflow\base\StatusInterface the Status instance this transition ends to
 	 */
 	public function getEndStatus();
 	/**
 	 * Returns the Status instance that is the starting point fo the transition.
 	 *
-	 * @return \raoul2000\workflow\base\StatusInterface the Status instance this transition starts from
+	 * @return \hjp1011\workflow\base\StatusInterface the Status instance this transition starts from
 	 */
 	public function getStartStatus();
 }

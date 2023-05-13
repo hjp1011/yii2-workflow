@@ -5,12 +5,12 @@ use Yii;
 use yii\codeception\TestCase;
 use yii\base\InvalidConfigException;
 use tests\codeception\unit\models\Item01;
-use raoul2000\workflow\base\Workflow;
-use raoul2000\workflow\base\Status;
-use raoul2000\workflow\base\Transition;
-use raoul2000\workflow\source\file\WorkflowFileSource;
-use raoul2000\workflow\base\TransitionInterface;
-use raoul2000\workflow\base\WorkflowInterface;
+use hjp1011\workflow\base\Workflow;
+use hjp1011\workflow\base\Status;
+use hjp1011\workflow\base\Transition;
+use hjp1011\workflow\source\file\WorkflowFileSource;
+use hjp1011\workflow\base\TransitionInterface;
+use hjp1011\workflow\base\WorkflowInterface;
 
 class StatusObjectTest extends TestCase
 {
@@ -74,7 +74,7 @@ class StatusObjectTest extends TestCase
 	{
 		$this->specify('status creation fails when no id is provided', function ()
 		{
-			$this->expectException('raoul2000\workflow\base\WorkflowException');
+			$this->expectException('hjp1011\workflow\base\WorkflowException');
 
 			$s = new Status([
 				'id' => 'draft',
@@ -176,7 +176,7 @@ class StatusObjectTest extends TestCase
 			$src = new \stdClass();
 
 			$this->expectException('yii\base\InvalidConfigException');
-			$this->expectExceptionMessage('The "source" property must implement interface raoul2000\workflow\source\IWorkflowSource');
+			$this->expectExceptionMessage('The "source" property must implement interface hjp1011\workflow\source\IWorkflowSource');
 			$start = new Status([
 				'id' => 'draft',
 				'workflowId' => 'workflow1',
@@ -190,7 +190,7 @@ class StatusObjectTest extends TestCase
 		$this->specify('create a status instance with an invalid source component', function ()
 		{
 			$this->expectException('yii\base\InvalidConfigException');
-			$this->expectExceptionMessage('The "source" property must implement interface raoul2000\workflow\source\IWorkflowSource');
+			$this->expectExceptionMessage('The "source" property must implement interface hjp1011\workflow\source\IWorkflowSource');
 			new Status([
 				'id' => 'draft',
 				'workflowId' => 'workflow1',
@@ -256,14 +256,14 @@ class StatusObjectTest extends TestCase
 
 		$this->specify('Failed to get transitions when no source is configured', function () use($st)
 		{
-			$this->expectException('raoul2000\workflow\base\WorkflowException');
+			$this->expectException('hjp1011\workflow\base\WorkflowException');
 			$this->expectExceptionMessage('no workflow source component available');
 			$st->getTransitions();
 		});
 
 		$this->specify('Failed to get workflow object when no source is configured', function () use($st)
 		{
-			$this->expectException('raoul2000\workflow\base\WorkflowException');
+			$this->expectException('hjp1011\workflow\base\WorkflowException');
 			$this->expectExceptionMessage('no workflow source component available');
 			$st->getWorkflow();
 		});
@@ -271,7 +271,7 @@ class StatusObjectTest extends TestCase
 		$this->specify('Failed to call isInitialStatus when no source is configured', function () use($st)
 		{
 			$this->expectException(
-				'raoul2000\workflow\base\WorkflowException'
+				'hjp1011\workflow\base\WorkflowException'
 			);
 			$this->expectExceptionMessage(
 				'no workflow source component available'

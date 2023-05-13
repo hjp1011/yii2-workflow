@@ -6,7 +6,7 @@ use Yii;
 use yii\codeception\TestCase;
 use yii\base\InvalidConfigException;
 use tests\codeception\unit\models\Item01;
-use raoul2000\workflow\base\SimpleWorkflowBehavior;
+use hjp1011\workflow\base\SimpleWorkflowBehavior;
 
 class DiscoverWorkflowTest extends TestCase
 {

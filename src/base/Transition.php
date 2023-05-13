@@ -1,5 +1,5 @@
 <?php
-namespace raoul2000\workflow\base;
+namespace hjp1011\workflow\base;
 
 use yii\base\InvalidConfigException;
 
@@ -36,7 +36,7 @@ class Transition extends WorkflowBaseObject implements TransitionInterface
 			$this->_startStatus = $config['start'];
 			unset($config['start']);
 			if ( ! $this->_startStatus instanceof StatusInterface ) {
-				throw new WorkflowException('Start status object must implement raoul2000\workflow\base\StatusInterface');
+				throw new WorkflowException('Start status object must implement hjp1011\workflow\base\StatusInterface');
 			}
 		} else {
 			throw new InvalidConfigException('missing start status');
@@ -46,7 +46,7 @@ class Transition extends WorkflowBaseObject implements TransitionInterface
 			$this->_endStatus = $config['end'];
 			unset($config['end']);
 			if ( ! $this->_endStatus instanceof StatusInterface) {
-				throw new WorkflowException('End status object must implement raoul2000\workflow\base\StatusInterface');
+				throw new WorkflowException('End status object must implement hjp1011\workflow\base\StatusInterface');
 			}
 
 		} else {
@@ -62,7 +62,7 @@ class Transition extends WorkflowBaseObject implements TransitionInterface
 	 * between status A and B has an idea equals to "A-B".
 	 *
 	 * @return string the transition Id
-	 * @see \raoul2000\workflow\base\WorkflowBaseObject::getId()
+	 * @see \hjp1011\workflow\base\WorkflowBaseObject::getId()
 	 */
 	public function getId()
 	{
@@ -70,14 +70,14 @@ class Transition extends WorkflowBaseObject implements TransitionInterface
 	}
 
 	/**
-	 * @see \raoul2000\workflow\base\TransitionInterface::getEndStatus()
+	 * @see \hjp1011\workflow\base\TransitionInterface::getEndStatus()
 	 */
 	public function getEndStatus()
 	{
 		return $this->_endStatus;
 	}
 	/**
-	 * @see \raoul2000\workflow\base\TransitionInterface::getStartStatus()
+	 * @see \hjp1011\workflow\base\TransitionInterface::getStartStatus()
 	 */
 	public function getStartStatus()
 	{

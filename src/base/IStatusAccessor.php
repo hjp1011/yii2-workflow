@@ -1,7 +1,7 @@
 <?php
-namespace raoul2000\workflow\base;
+namespace hjp1011\workflow\base;
 
-use raoul2000\workflow\base\Status;
+use hjp1011\workflow\base\Status;
 use yii\db\BaseActiveRecord;
 
 /**

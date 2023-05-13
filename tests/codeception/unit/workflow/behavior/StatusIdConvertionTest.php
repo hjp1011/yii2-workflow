@@ -5,11 +5,11 @@ use Yii;
 use yii\codeception\TestCase;
 use yii\base\InvalidConfigException;
 use tests\codeception\unit\models\Item04;
-use raoul2000\workflow\base\Workflow;
-use raoul2000\workflow\base\Status;
-use raoul2000\workflow\base\Transition;
-use raoul2000\workflow\base\StatusIdConverter;
-use raoul2000\workflow\base\SimpleWorkflowBehavior;
+use hjp1011\workflow\base\Workflow;
+use hjp1011\workflow\base\Status;
+use hjp1011\workflow\base\Transition;
+use hjp1011\workflow\base\StatusIdConverter;
+use hjp1011\workflow\base\SimpleWorkflowBehavior;
 
 class StatusIdConvertionTest extends TestCase
 {
@@ -21,15 +21,15 @@ class StatusIdConvertionTest extends TestCase
 		parent::setUp();
 
 		Yii::$app->set('workflowSource',[
-			'class'=> 'raoul2000\workflow\source\file\WorkflowFileSource',
+			'class'=> 'hjp1011\workflow\source\file\WorkflowFileSource',
 			'definitionLoader' => [
-				'class' => 'raoul2000\workflow\source\file\PhpClassLoader',
+				'class' => 'hjp1011\workflow\source\file\PhpClassLoader',
 				'namespace' => 'tests\codeception\unit\models'
 			]
 		]);
 
 		Yii::$app->set('converter',[
-			'class'=> 'raoul2000\workflow\base\StatusIdConverter',
+			'class'=> 'hjp1011\workflow\base\StatusIdConverter',
 			'map' => [
 				'Item04Workflow/A' => '1',
 				'Item04Workflow/C' => '2',

@@ -1,6 +1,6 @@
 <?php
 
-namespace raoul2000\workflow\base;
+namespace hjp1011\workflow\base;
 
 use Yii;
 use yii\base\Behavior;
@@ -9,9 +9,9 @@ use yii\db\BaseActiveRecord;
 use yii\base\Event;
 use yii\base\InvalidConfigException;
 use yii\base\Exception;
-use raoul2000\workflow\events\IEventSequence;
-use raoul2000\workflow\validation\WorkflowScenario;
-use raoul2000\workflow\events\WorkflowEvent;
+use hjp1011\workflow\events\IEventSequence;
+use hjp1011\workflow\validation\WorkflowScenario;
+use hjp1011\workflow\events\WorkflowEvent;
 
 /**
  * SimpleWorkflowBehavior implements the behavior of a model evolving inside a *Simple Workflow*.
@@ -20,7 +20,7 @@ use raoul2000\workflow\events\WorkflowEvent;
  * for any standard Yii2 behavior.
  * 
  * <pre>
- * use raoul2000\workflow\base\SimpleWorkflowBehavior;
+ * use hjp1011\workflow\base\SimpleWorkflowBehavior;
  *
  * public function behaviors()
  * {
@@ -47,7 +47,7 @@ use raoul2000\workflow\events\WorkflowEvent;
  * Below is an example behavior initialization :
  * 
  * <pre>
- * use raoul2000\workflow\base\SimpleWorkflowBehavior;
+ * use hjp1011\workflow\base\SimpleWorkflowBehavior;
  *
  * public function behaviors()
  * {
@@ -69,12 +69,12 @@ class SimpleWorkflowBehavior extends Behavior
 	 * Name of the class used to instantiate the default workflow source component if not 
 	 * configured.
 	 */
-	const DEFAULT_SOURCE_CLASS = 'raoul2000\workflow\source\file\WorkflowFileSource';
+	const DEFAULT_SOURCE_CLASS = 'hjp1011\workflow\source\file\WorkflowFileSource';
 	/**
 	 * Name of the class used to instantiate the default event sequence if not 
 	 * configured.
 	 */
-	const DEFAULT_EVENT_SEQUENCE_CLASS = 'raoul2000\workflow\events\BasicEventSequence';
+	const DEFAULT_EVENT_SEQUENCE_CLASS = 'hjp1011\workflow\events\BasicEventSequence';
 	/**
 	 * Name of the default workflow event fired before the owner model change status.
 	 */
@@ -102,7 +102,7 @@ class SimpleWorkflowBehavior extends Behavior
 	 * - object : the instance of the status converter
 	 *
 	 * Note that the status converter configured here must implement the
-	 * `raoul2000\workflow\base\IStatusIdConverter` interface.
+	 * `hjp1011\workflow\base\IStatusIdConverter` interface.
 	 */	
 	public $statusConverter = null;
 	/**
@@ -114,7 +114,7 @@ class SimpleWorkflowBehavior extends Behavior
 	 * - object : the instance of the status converter
 	 *
 	 * Note that the status accessor configured here must implement the
-	 * `raoul2000\workflow\base\IStatusAccessor` interface.
+	 * `hjp1011\workflow\base\IStatusAccessor` interface.
 	 */	
 	public $statusAccessor = null;
 	/**
@@ -320,7 +320,7 @@ class SimpleWorkflowBehavior extends Behavior
 	 * This method does not trigger any event, it is only restoring the model into its workflow. It is invoked when the behavior
 	 * is attached to the model, and on AFTER_FIND event.
 	 * 
-	 * @throws \raoul2000\workflow\base\WorkflowException if the status attribute could not be converted into a Status object
+	 * @throws \hjp1011\workflow\base\WorkflowException if the status attribute could not be converted into a Status object
 	 */
 	public function initStatus()
 	{
@@ -523,7 +523,7 @@ class SimpleWorkflowBehavior extends Behavior
 	 * 
 	 * The returned array contains up to 3 elements :
 	 * - index = 0 : the Status instance corresponding to the $status passed as argument
-	 * - index = 1 : an array of [[\raoul2000\workflow\events\WorkflowEvent]] instances (the event sequence) that 
+	 * - index = 1 : an array of [[\hjp1011\workflow\events\WorkflowEvent]] instances (the event sequence) that 
 	 * may contain no element if no event  sequence component is configured or if event sequence are not requested ($withEventSequence = false)
 	 * - index = 2 : an array of scenario names (string) that may be empty if scenario names are not requested ($WithScenarioNames= false)
 	 * 
@@ -801,7 +801,7 @@ class SimpleWorkflowBehavior extends Behavior
 	 * This component is initialized by the [[$source]] configuration property. If not configured, the behavior creates
 	 * and register its own workflow source component.
 	 * 
-	 * @return \raoul2000\workflow\source\IWorkflowSource the workflow source component instance used by this behavior
+	 * @return \hjp1011\workflow\source\IWorkflowSource the workflow source component instance used by this behavior
 	 */
 	public function getWorkflowSource()
 	{
@@ -814,7 +814,7 @@ class SimpleWorkflowBehavior extends Behavior
 	 * This component is initialized by the [[$statusAccessor]] configuration property.
 	 * 
 	 * @throws InvalidConfigException
-	 * @return NULL|\raoul2000\workflow\base\IStatusAccessor the status accessor component used bu the behavior
+	 * @return NULL|\hjp1011\workflow\base\IStatusAccessor the status accessor component used bu the behavior
 	 * or NULL if not configured (default)
 	 */
 	public function getStatusAccessor()

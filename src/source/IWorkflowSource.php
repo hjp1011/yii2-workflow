@@ -1,5 +1,5 @@
 <?php
-namespace raoul2000\workflow\source;
+namespace hjp1011\workflow\source;
 
 /**
  * Interface for WorkflowSource components.
@@ -14,8 +14,8 @@ interface IWorkflowSource
 	 * In case of unexpected error the implementation must return a WorkflowException.
 	 *
 	 * @param mixed $id the status id
-	 * @return \raoul2000\workflow\base\StatusInterface the status instance or NULL if no status could be found for this id.
-	 * @throws \raoul2000\workflow\base\WorkflowException unexpected error
+	 * @return \hjp1011\workflow\base\StatusInterface the status instance or NULL if no status could be found for this id.
+	 * @throws \hjp1011\workflow\base\WorkflowException unexpected error
 	 */
 	public function getStatus($id, $model = null);
 	/**
@@ -23,8 +23,8 @@ interface IWorkflowSource
 	 * whose id is passed as argument.
 	 *
 	 * @param string $id workflow Id
-	 * @return \raoul2000\workflow\base\StatusInterface[] list of status. The array key is the status ID
-	 * @throws \raoul2000\workflow\base\WorkflowException no workflow is found with this Id
+	 * @return \hjp1011\workflow\base\StatusInterface[] list of status. The array key is the status ID
+	 * @throws \hjp1011\workflow\base\WorkflowException no workflow is found with this Id
 	 */
 	public function getAllStatuses($id);
 	/**
@@ -35,9 +35,9 @@ interface IWorkflowSource
 	 * The array returned must be indexed by status Id
 	 *
 	 * @param mixed $statusId
-	 * @return \raoul2000\workflow\base\TransitionInterface[] an array containing all out going transition from $statusId. If no such
+	 * @return \hjp1011\workflow\base\TransitionInterface[] an array containing all out going transition from $statusId. If no such
 	 * transition exist, this method returns an empty array.
-	 * @throws \raoul2000\workflow\base\WorkflowException unexpected error
+	 * @throws \hjp1011\workflow\base\WorkflowException unexpected error
 	 */
 	public function getTransitions($statusId, $model = null);
 	/**
@@ -46,7 +46,7 @@ interface IWorkflowSource
 	 * @param mixed $startId
 	 * @param mixed $endId
 	 * @param mixed $model
-	 *  @return \raoul2000\workflow\base\TransitionInterface the transition between start and end status
+	 *  @return \hjp1011\workflow\base\TransitionInterface the transition between start and end status
 	 */
 	public function getTransition($startId, $endId, $model = null);
 	/**
@@ -54,7 +54,7 @@ interface IWorkflowSource
 	 * In case of unexpected error the implementation must return a WorkflowException.
 	 *
 	 * @param mixed $id the workflow id
-	 * @return \raoul2000\workflow\base\WorkflowInterface the workflow instance or NULL if no workflow could be found.
+	 * @return \hjp1011\workflow\base\WorkflowInterface the workflow instance or NULL if no workflow could be found.
 	 */
 	public function getWorkflow($id);
 }

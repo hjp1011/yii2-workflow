@@ -6,9 +6,9 @@ use yii\codeception\TestCase;
 use yii\base\InvalidConfigException;
 use tests\codeception\unit\models\Item07;
 use tests\codeception\unit\models\StatusAccessor07;
-use raoul2000\workflow\base\Status;
-use raoul2000\workflow\base\SimpleWorkflowBehavior;
-use raoul2000\workflow\base\WorkflowException;
+use hjp1011\workflow\base\Status;
+use hjp1011\workflow\base\SimpleWorkflowBehavior;
+use hjp1011\workflow\base\WorkflowException;
 
 class StatusAccessorTest extends TestCase
 {
@@ -22,9 +22,9 @@ class StatusAccessorTest extends TestCase
 		parent::setUp();
 
 		Yii::$app->set('workflowSource',[
-			'class'=> 'raoul2000\workflow\source\file\WorkflowFileSource',
+			'class'=> 'hjp1011\workflow\source\file\WorkflowFileSource',
 			'definitionLoader' => [
-				'class' => 'raoul2000\workflow\source\file\PhpClassLoader',
+				'class' => 'hjp1011\workflow\source\file\PhpClassLoader',
 				'namespace' => 'tests\codeception\unit\models'
 			]
 		]);
@@ -56,7 +56,7 @@ class StatusAccessorTest extends TestCase
 	{
 		$this->statusAccessor->statusToReturnOnGet = 'NOT FOUND';
 		$this->expectException(
-			'raoul2000\workflow\base\WorkflowException'
+			'hjp1011\workflow\base\WorkflowException'
 		);
 		$this->expectExceptionMessage(
 			"Not a valid status id format: failed to get workflow id - status = 'NOT FOUND'"
@@ -115,7 +115,7 @@ class StatusAccessorTest extends TestCase
 		verify('getStatus has been called ',$this->statusAccessor->callGetStatusCount)->equals(1);
 
 		$this->expectException(
-			'raoul2000\workflow\base\WorkflowException'
+			'hjp1011\workflow\base\WorkflowException'
 		);
 		$this->expectExceptionMessage(
 			"Model already in a workflow"

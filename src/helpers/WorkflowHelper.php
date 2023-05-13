@@ -1,9 +1,9 @@
 <?php
-namespace raoul2000\workflow\helpers;
+namespace hjp1011\workflow\helpers;
 
 use yii\db\BaseActiveRecord;
-use raoul2000\workflow\base\SimpleWorkflowBehavior;
-use raoul2000\workflow\base\WorkflowException;
+use hjp1011\workflow\base\SimpleWorkflowBehavior;
+use hjp1011\workflow\base\WorkflowException;
 
 /**
  * Helper class for yii2-workflow.

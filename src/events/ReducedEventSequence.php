@@ -1,13 +1,13 @@
 <?php
-namespace raoul2000\workflow\events;
+namespace hjp1011\workflow\events;
 
 use yii\base\BaseObject;
-use raoul2000\workflow\events\IEventSequence;
+use hjp1011\workflow\events\IEventSequence;
 
 /**
  * The reduced event sequence.
  *
- * @see \raoul2000\workflow\events\IEventSequence
+ * @see \hjp1011\workflow\events\IEventSequence
  *
  */
 class ReducedEventSequence extends BaseObject implements IEventSequence
@@ -18,7 +18,7 @@ class ReducedEventSequence extends BaseObject implements IEventSequence
 	 * - beforeEnterWorkflow(WID)
 	 * - afterEnterWorkflow(WID)
 	 *
-	 * @see \raoul2000\workflow\events\IEventSequence::createEnterWorkflowSequence()
+	 * @see \hjp1011\workflow\events\IEventSequence::createEnterWorkflowSequence()
 	 */
 	public function createEnterWorkflowSequence($initalStatus, $sender)
 	{
@@ -48,7 +48,7 @@ class ReducedEventSequence extends BaseObject implements IEventSequence
 	 * - beforeLeaveWorkflow(WID)
 	 * - afterLeaveWorkflow(WID)
 	 *
-	 * @see \raoul2000\workflow\events\IEventSequence::createLeaveWorkflowSequence()
+	 * @see \hjp1011\workflow\events\IEventSequence::createLeaveWorkflowSequence()
 	 */
 	public function createLeaveWorkflowSequence($finalStatus, $sender)
 	{
@@ -78,7 +78,7 @@ class ReducedEventSequence extends BaseObject implements IEventSequence
 	 * - beforeChangeStatus(A,B)
 	 * - afterChangeStatus(A,B)
 	 *
-	 * @see \raoul2000\workflow\events\IEventSequence::createChangeStatusSequence()
+	 * @see \hjp1011\workflow\events\IEventSequence::createChangeStatusSequence()
 	 */
 	public function createChangeStatusSequence($transition, $sender)
 	{

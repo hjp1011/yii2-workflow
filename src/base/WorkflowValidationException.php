@@ -1,5 +1,5 @@
 <?php
-namespace raoul2000\workflow\base;
+namespace hjp1011\workflow\base;
 
 use Yii;
 use yii\base\Exception;
@@ -8,7 +8,7 @@ use yii\base\Exception;
  * WorkflowValidationException represents an exception related to workflow validation performed
  * by Workflow Source component and related PHP array Parsers.
  * 
- * @see \raoul2000\workflow\source\file\WorkflowFileSource
+ * @see \hjp1011\workflow\source\file\WorkflowFileSource
  *
  */
 class WorkflowValidationException extends Exception

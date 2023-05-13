@@ -7,10 +7,10 @@ use yii\codeception\TestCase;
 use yii\base\InvalidConfigException;
 
 use tests\codeception\unit\models\Item01;
-use raoul2000\workflow\base\Workflow;
-use raoul2000\workflow\base\Status;
-use raoul2000\workflow\base\StatusInterface;
-use raoul2000\workflow\source\file\WorkflowFileSource;
+use hjp1011\workflow\base\Workflow;
+use hjp1011\workflow\base\Status;
+use hjp1011\workflow\base\StatusInterface;
+use hjp1011\workflow\source\file\WorkflowFileSource;
 
 class WorkflowObjectTest extends TestCase
 {
@@ -100,7 +100,7 @@ class WorkflowObjectTest extends TestCase
 
     	$this->specify('fails to get initial status if no source component is available', function () use ($w) {
     		$this->expectException(
-    			'raoul2000\workflow\base\WorkflowException'
+    			'hjp1011\workflow\base\WorkflowException'
     		);
     		$this->expectExceptionMessage(
     			'no workflow source component available'
@@ -110,7 +110,7 @@ class WorkflowObjectTest extends TestCase
 
     	$this->specify('fails to get all statues if no source component is available', function () use ($w) {
     		$this->expectException(
-    			'raoul2000\workflow\base\WorkflowException'
+    			'hjp1011\workflow\base\WorkflowException'
     		);
     		$this->expectExceptionMessage(
     			'no workflow source component available'

@@ -5,9 +5,9 @@ use Yii;
 use yii\codeception\TestCase;
 use yii\base\InvalidConfigException;
 use tests\codeception\unit\models\Item01;
-use raoul2000\workflow\base\Workflow;
-use raoul2000\workflow\base\Status;
-use raoul2000\workflow\base\Transition;
+use hjp1011\workflow\base\Workflow;
+use hjp1011\workflow\base\Status;
+use hjp1011\workflow\base\Transition;
 use yii\db\Transaction;
 
 class TransitionObjectTest extends TestCase
@@ -78,10 +78,10 @@ class TransitionObjectTest extends TestCase
 		$this->specify('create transition with start status not Status instance fails ', function ()
 		{
 			$this->expectException(
-				'raoul2000\workflow\base\WorkflowException'
+				'hjp1011\workflow\base\WorkflowException'
 			);
 			$this->expectExceptionMessage(
-				'Start status object must implement raoul2000\workflow\base\StatusInterface'
+				'Start status object must implement hjp1011\workflow\base\StatusInterface'
 			);
 			new Transition([
 				'start'   => new \stdClass()
@@ -132,10 +132,10 @@ class TransitionObjectTest extends TestCase
 		$this->specify('create transition with end status not Status instance fails ', function ()
 		{
 			$this->expectException(
-				'raoul2000\workflow\base\WorkflowException'
+				'hjp1011\workflow\base\WorkflowException'
 			);
 			$this->expectExceptionMessage(
-				'End status object must implement raoul2000\workflow\base\StatusInterface'
+				'End status object must implement hjp1011\workflow\base\StatusInterface'
 			);
 			new Transition([
 				'start' => new Status([

@@ -19,13 +19,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist raoul2000/yii2-workflow "*"
+php composer.phar require --prefer-dist hjp1011/yii2-workflow "*"
 ```
 
 or add
 
 ```
-"raoul2000/yii2-workflow": "*"
+"hjp1011/yii2-workflow": "*"
 ```
 
 to the require section of your `composer.json` file.

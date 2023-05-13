@@ -7,10 +7,10 @@ use yii\codeception\TestCase;
 use tests\codeception\unit\models\Item01;
 use yii\base\InvalidConfigException;
 use yii\base\Exception;
-use raoul2000\workflow\source\file\WorkflowFileSource;
-use raoul2000\workflow\base\Status;
-use raoul2000\workflow\base\Transition;
-use raoul2000\workflow\base\Workflow;
+use hjp1011\workflow\source\file\WorkflowFileSource;
+use hjp1011\workflow\base\Status;
+use hjp1011\workflow\base\Transition;
+use hjp1011\workflow\base\Workflow;
 
 
 class WorkflowFileSourceTest extends TestCase
@@ -42,9 +42,9 @@ class WorkflowFileSourceTest extends TestCase
 
 			$src = new WorkflowFileSource();
 
-			expect($src->getClassMapByType(WorkflowFileSource::TYPE_WORKFLOW))->equals(	'raoul2000\workflow\base\Workflow'		);
-			expect($src->getClassMapByType(WorkflowFileSource::TYPE_STATUS))->equals(	'raoul2000\workflow\base\Status'		);
-			expect($src->getClassMapByType(WorkflowFileSource::TYPE_TRANSITION))->equals('raoul2000\workflow\base\Transition'	);
+			expect($src->getClassMapByType(WorkflowFileSource::TYPE_WORKFLOW))->equals(	'hjp1011\workflow\base\Workflow'		);
+			expect($src->getClassMapByType(WorkflowFileSource::TYPE_STATUS))->equals(	'hjp1011\workflow\base\Status'		);
+			expect($src->getClassMapByType(WorkflowFileSource::TYPE_TRANSITION))->equals('hjp1011\workflow\base\Transition'	);
 
 			expect($src->getDefinitionCache())->equals(null);
 			expect($src->getDefinitionLoader())->notNull();

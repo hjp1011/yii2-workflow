@@ -2,13 +2,13 @@
 
 The *Workflow Source* is a Yii2 component dedicated to read the persistent representation of a workflow and provide on demand to the *SimpleWorkflowBehavior*, its memory representation in terms of PHP objects.
 
-The main Workflow Source component included in the *SimpleWorkflow* package is `raoul2000\workflow\source\file\WorkflowFileSource`. It is designed to process workflow definition stored in a file as a regular PHP Array, a PHP class definition or a Graphml file ( for a detail description, refer to [Workflow File Source Component](source-file.md)).
+The main Workflow Source component included in the *SimpleWorkflow* package is `hjp1011\workflow\source\file\WorkflowFileSource`. It is designed to process workflow definition stored in a file as a regular PHP Array, a PHP class definition or a Graphml file ( for a detail description, refer to [Workflow File Source Component](source-file.md)).
 
 Note that it is possible that in the future, other workflow source component are provided like for instance a *WorkflowDbSource* that would read from a database.
 
 ## About Workflow Objects
 
-The *SimpleWorkflow* manipulates objects to manage workflows. There are 3 basic types of objects that you will meet sooner or later. They are all part of the `raoul2000\workflow\base` namespace:
+The *SimpleWorkflow* manipulates objects to manage workflows. There are 3 basic types of objects that you will meet sooner or later. They are all part of the `hjp1011\workflow\base` namespace:
 
 - `Status` : implements a status in a workflow
 - `Transition` : implemented a directed transition between 2 statuses
@@ -19,7 +19,7 @@ The main purpose of a Workflow Source component is to turn a workflow definition
 
 ## Component registration
 
-When the *SimpleWorkflowBehavior* is initialized, it tries to get a reference to the *Workflow Source Component* to use. By default this component is assumed to have the id **workflowSource**. If no such component is available, the *SimpleWorkflowBehavior* will **create one**, with the type `raoul2000\workflow\source\file\WorkflowFileSource` (default) and registers it in the Yii2 application, so to make it available to other instances of *SimpleWorkflowBehavior*.
+When the *SimpleWorkflowBehavior* is initialized, it tries to get a reference to the *Workflow Source Component* to use. By default this component is assumed to have the id **workflowSource**. If no such component is available, the *SimpleWorkflowBehavior* will **create one**, with the type `hjp1011\workflow\source\file\WorkflowFileSource` (default) and registers it in the Yii2 application, so to make it available to other instances of *SimpleWorkflowBehavior*.
 
 This implies that, unless specified otherwise, by default, all *SimpleWorkflowBehavior* are sharing **the same Workflow Source component**.
 
@@ -28,7 +28,7 @@ If you're not familiar with "application Component", please refer to the "[Defin
 To summarize :
 
 - **workflowSource** : default Id of the workflow source component used by the *SimpleWorkflowBehavior*
-- **\raoul2000\workflow\source\file\WorkflowFileSource** : default workflow source component type
+- **\hjp1011\workflow\source\file\WorkflowFileSource** : default workflow source component type
 
 If for instance you want to use another Workflow Source Component instead of the default one, you must configure it like you would do for any other Yii2 component and use the expected default Id.
 
@@ -72,7 +72,7 @@ class SpaceShip extends \yii\db\ActiveRecord
     {
     	return [
 			[
-				'class' => \raoul2000\workflow\base\SimpleWorkflowBehavior::className(),
+				'class' => \hjp1011\workflow\base\SimpleWorkflowBehavior::className(),
 				// SpaceShip will use a specific Workflow Source Component
 				// All other models are using the default one
 				'source' => 'mySpaceSource'
@@ -85,4 +85,4 @@ class SpaceShip extends \yii\db\ActiveRecord
 
 ## Implementing Your Own Workflow source
 
-You can create your own Workflow Source Component by implementing the `\raoul2000\workflow\source\IWorkflowSource` interface.
+You can create your own Workflow Source Component by implementing the `\hjp1011\workflow\source\IWorkflowSource` interface.

@@ -1,7 +1,7 @@
 <?php
-namespace raoul2000\workflow\validation;
+namespace hjp1011\workflow\validation;
 
-use raoul2000\workflow\base\WorkflowException;
+use hjp1011\workflow\base\WorkflowException;
 
 /**
  * Helper class to create workflow scenario names.

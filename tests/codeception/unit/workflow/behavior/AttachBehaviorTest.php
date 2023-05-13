@@ -6,7 +6,7 @@ use Yii;
 use yii\codeception\TestCase;
 use tests\codeception\unit\models\Item01;
 use yii\base\InvalidConfigException;
-use raoul2000\workflow\base\SimpleWorkflowBehavior;
+use hjp1011\workflow\base\SimpleWorkflowBehavior;
 
 class AttachBehaviorTest extends TestCase
 {

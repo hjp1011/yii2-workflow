@@ -6,7 +6,7 @@ use Yii;
 use yii\codeception\TestCase;
 use tests\codeception\unit\models\Item01;
 use yii\base\InvalidConfigException;
-use raoul2000\workflow\base\SimpleWorkflowBehavior;
+use hjp1011\workflow\base\SimpleWorkflowBehavior;
 
 class InitStatusTest extends TestCase
 {
@@ -17,9 +17,9 @@ class InitStatusTest extends TestCase
 		parent::setUp();
 		Item01::deleteAll();
 		Yii::$app->set('workflowSource',[
-			'class'=> 'raoul2000\workflow\source\file\WorkflowFileSource',
+			'class'=> 'hjp1011\workflow\source\file\WorkflowFileSource',
 			'definitionLoader' => [
-				'class' => 'raoul2000\workflow\source\file\PhpClassLoader',
+				'class' => 'hjp1011\workflow\source\file\PhpClassLoader',
 				'namespace' => 'tests\codeception\unit\models'
 			]
 		]);
@@ -44,7 +44,7 @@ class InitStatusTest extends TestCase
 
 			verify('current status is set', $model->getWorkflowStatus() != null)->true();
 			verify('current status is set (use attribute notation)', $model->workflowStatus != null)->true();
-			verify('current status is Status instance', get_class($model->getWorkflowStatus()))->equals('raoul2000\workflow\base\Status');
+			verify('current status is Status instance', get_class($model->getWorkflowStatus()))->equals('hjp1011\workflow\base\Status');
 		});
     }
 
@@ -54,7 +54,7 @@ class InitStatusTest extends TestCase
     		$model = new Item01();
     		$model->status = 'Workflow1/X';
     		$this->expectException(
-    			'raoul2000\workflow\base\WorkflowException'
+    			'hjp1011\workflow\base\WorkflowException'
     		);
     		$this->expectExceptionMessage(
     			'No status found with id Workflow1/X'
@@ -113,7 +113,7 @@ class InitStatusTest extends TestCase
     		$model->save(false);
 
     		$this->expectException(
-    			'raoul2000\workflow\base\WorkflowException'
+    			'hjp1011\workflow\base\WorkflowException'
     		);
     		$this->expectExceptionMessage(
     			'No status found with id Workflow1/X'

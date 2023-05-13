@@ -14,7 +14,7 @@ class Post extends \yii\db\ActiveRecord
     {
         return [
         	[
-	            'class'                    => '\raoul2000\workflow\base\SimpleWorkflowBehavior',
+	            'class'                    => '\hjp1011\workflow\base\SimpleWorkflowBehavior',
 
 	            // model attribute to store status
 	            'statusAttribute'          => 'col_status',
@@ -47,19 +47,19 @@ Again, no worries ! Usually the default Workflow Source component will be just f
 $config = [
     'components' => [
         'my_workflow_source' => [
-          'class'            => 'raoul2000\workflow\source\file\WorkflowFileSource',
+          'class'            => 'hjp1011\workflow\source\file\WorkflowFileSource',
 
           // Cache component name
           'definitionCache'  => 'cache',
 
           // load workflow as PHP class from the @app/models/workflows namespace
           'definitionLoader' => [
-              'class'      => 'raoul2000\workflow\source\file\PhpClassLoader',
+              'class'      => 'hjp1011\workflow\source\file\PhpClassLoader',
               'namespace'  => '@app/models/workflows'
            ],
 
           // workflow provided by PHP class will be defined as a minimal array
-          'parser'           => 'raoul2000\workflow\source\file\MinimalArrayParser',          
+          'parser'           => 'hjp1011\workflow\source\file\MinimalArrayParser',          
 
            // we provide our own implementation for simple workflow base objects
 		   'classMap'        => [

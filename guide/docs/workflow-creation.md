@@ -1,6 +1,6 @@
 # Workflow Creation : PHP Source
 
-The way a workflow is defined depends on the [Workflow Source](concept-source.md) component we will be using. By default the *SimpleWorkflowBehavior* is using an instance of the class `WorkflowFileSource` defined in the namespace `raoul2000\workflow\source\file`. This component is able to read a workflow definition out of an associative PHP array. In this chapter we are going to learn how to create this array and thus define the craziest workflow ever !! ... humm ok, maybe not really....
+The way a workflow is defined depends on the [Workflow Source](concept-source.md) component we will be using. By default the *SimpleWorkflowBehavior* is using an instance of the class `WorkflowFileSource` defined in the namespace `hjp1011\workflow\source\file`. This component is able to read a workflow definition out of an associative PHP array. In this chapter we are going to learn how to create this array and thus define the craziest workflow ever !! ... humm ok, maybe not really....
 
 ## Identifiers
 
@@ -50,7 +50,7 @@ By Default the *WorkflowFileSource* component reads workflow definition from *Wo
 
 ```php
 namespace app\models;
-class PostWorkflow implements raoul2000\workflow\base\IWorkflowDefinitionProvider
+class PostWorkflow implements hjp1011\workflow\base\IWorkflowDefinitionProvider
 {
 	public function getDefinition() {
 		return [
@@ -186,7 +186,7 @@ Below is the definition of this workflow ready to be used by the *SimpleWorkflow
 ```php
 namespace app\models;
 
-class PostWorkflow implements raoul2000\workflow\base\IWorkflowDefinitionProvider
+class PostWorkflow implements hjp1011\workflow\base\IWorkflowDefinitionProvider
 {
 	public function getDefinition() {
 		return [

@@ -7,12 +7,12 @@ use yii\codeception\TestCase;
 use tests\codeception\unit\models\Item01;
 use yii\base\InvalidConfigException;
 use yii\base\Exception;
-use raoul2000\workflow\source\file\WorkflowFileSource;
-use raoul2000\workflow\base\Status;
-use raoul2000\workflow\base\Transition;
-use raoul2000\workflow\base\Workflow;
-use raoul2000\workflow\base\StatusInterface;
-use raoul2000\workflow\base\TransitionInterface;
+use hjp1011\workflow\source\file\WorkflowFileSource;
+use hjp1011\workflow\base\Status;
+use hjp1011\workflow\base\Transition;
+use hjp1011\workflow\base\Workflow;
+use hjp1011\workflow\base\StatusInterface;
+use hjp1011\workflow\base\TransitionInterface;
 
 
 class StatusTest extends TestCase
@@ -28,7 +28,7 @@ class StatusTest extends TestCase
 	}
 
     /**
-     * @expectedException raoul2000\workflow\base\WorkflowValidationException
+     * @expectedException hjp1011\workflow\base\WorkflowValidationException
      * @expectedExceptionMessageRegExp #No status definition found#
      */
 	public function testStatusNotFoundSuccess()

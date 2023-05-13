@@ -1,15 +1,15 @@
 <?php
-namespace raoul2000\workflow\source\file;
+namespace hjp1011\workflow\source\file;
 
 use Yii;
 use yii\base\BaseObject;
 use yii\base\InvalidConfigException;
 use yii\helpers\Inflector;
 use yii\helpers\VarDumper;
-use raoul2000\workflow\base\Status;
-use raoul2000\workflow\base\Workflow;
-use raoul2000\workflow\base\WorkflowException;
-use raoul2000\workflow\source\IWorkflowSource;
+use hjp1011\workflow\base\Status;
+use hjp1011\workflow\base\Workflow;
+use hjp1011\workflow\base\WorkflowException;
+use hjp1011\workflow\source\IWorkflowSource;
 
 
 /**
@@ -45,10 +45,10 @@ class WorkflowFileSource extends BaseObject implements IWorkflowSource
 	/**
 	 * Name of the parser class that is used by default
 	 */
-	const DEFAULT_WDLOADER_CLASS = '\raoul2000\workflow\source\file\PhpClassLoader';
+	const DEFAULT_WDLOADER_CLASS = '\hjp1011\workflow\source\file\PhpClassLoader';
 	/**
 	 *
-	 * @var string|array|\raoul2000\workflow\source\file\WorkflowDefinitionLoader The workflow definition loader used by this
+	 * @var string|array|\hjp1011\workflow\source\file\WorkflowDefinitionLoader The workflow definition loader used by this
 	 * source component can be be specified in one of the following forms :
 	 *
 	 * - string : ID of an existing workflow definition component registered in the current Yii::$app.
@@ -59,7 +59,7 @@ class WorkflowFileSource extends BaseObject implements IWorkflowSource
 	 * Note that in all cases, the workflow definition loader configured here must implement the
 	 * `WorkflowDefinitionLoader` interface.
 	 *
-	 * If this attribute is not set then a default object of type `\raoul2000\workflow\source\file\PhpClassLoader` is used.
+	 * If this attribute is not set then a default object of type `\hjp1011\workflow\source\file\PhpClassLoader` is used.
 	 */
 	public $definitionLoader;
 	/**
@@ -80,15 +80,15 @@ class WorkflowFileSource extends BaseObject implements IWorkflowSource
 	 */
 	private $_workflowDef = [];
 	/**
-	 * @var \raoul2000\workflow\base\WorkflowInterface[] list of workflow instances indexed by workflow id
+	 * @var \hjp1011\workflow\base\WorkflowInterface[] list of workflow instances indexed by workflow id
 	 */
 	private $_w = [];
 	/**
-	 * @var \raoul2000\workflow\base\StatusInterface[] list status instances indexed by their id
+	 * @var \hjp1011\workflow\base\StatusInterface[] list status instances indexed by their id
 	 */
 	private $_s = [];
 	/**
-	 * @var \raoul2000\workflow\base\TransitionInterface[] list of out-going Transition instances indexed by the start status id
+	 * @var \hjp1011\workflow\base\TransitionInterface[] list of out-going Transition instances indexed by the start status id
 	 */
 	private $_t = [];
 	/**
@@ -119,9 +119,9 @@ class WorkflowFileSource extends BaseObject implements IWorkflowSource
 	 * @var array
 	 */
 	private $_classMap = [
-		self::TYPE_WORKFLOW   => 'raoul2000\workflow\base\Workflow',
-		self::TYPE_STATUS     => 'raoul2000\workflow\base\Status',
-		self::TYPE_TRANSITION => 'raoul2000\workflow\base\Transition'
+		self::TYPE_WORKFLOW   => 'hjp1011\workflow\base\Workflow',
+		self::TYPE_STATUS     => 'hjp1011\workflow\base\Status',
+		self::TYPE_TRANSITION => 'hjp1011\workflow\base\Transition'
 	];
 	/**
 	 * Constructor method.
@@ -219,7 +219,7 @@ class WorkflowFileSource extends BaseObject implements IWorkflowSource
 	 * @param mixed $defaultWorkflowId model instance used to resolve the status ID or workflow ID
 	 * @return Status the status instance
 	 *
-	 * @see \raoul2000\workflow\source\IWorkflowSource::getStatus
+	 * @see \hjp1011\workflow\source\IWorkflowSource::getStatus
 	 */
 	public function getStatus($id, $defaultWorkflowId = null)
 	{
@@ -318,7 +318,7 @@ class WorkflowFileSource extends BaseObject implements IWorkflowSource
 	/**
 	 * Returns the Workflow instance whose id is passed as argument.
 	 *
-	 * @return raoul2000\workflow\base\Workflow|null The workflow instance or NULL if no workflow could be found
+	 * @return hjp1011\workflow\base\Workflow|null The workflow instance or NULL if no workflow could be found
 	 * @see IWorkflowSource::getTransition()
 	 */
 	public function getWorkflow($id)
@@ -354,7 +354,7 @@ class WorkflowFileSource extends BaseObject implements IWorkflowSource
 	 * that holds the workflow definition.
 	 *
 	 * @param string $id
-	 * @throws \raoul2000\workflow\base\WorkflowException the definition could not be loaded
+	 * @throws \hjp1011\workflow\base\WorkflowException the definition could not be loaded
 	 */
 	public function getWorkflowDefinition($id)
 	{
@@ -509,7 +509,7 @@ class WorkflowFileSource extends BaseObject implements IWorkflowSource
 	 * If a workflow with same id already exist in this source, it is overwritten if the last parameter
 	 * is set to TRUE.
 	 *
-	 * @see \raoul2000\workflow\base\SimpleWorkflowBehavior::attach()
+	 * @see \hjp1011\workflow\base\SimpleWorkflowBehavior::attach()
 	 * @param string $workflowId Id of the workflow
 	 * @param array $definition array containing the workflow definition to process
 	 * @param boolean $overwrite When set to TRUE, the operation will fail if a workflow definition
@@ -606,7 +606,7 @@ class WorkflowFileSource extends BaseObject implements IWorkflowSource
 	/**
 	 * Returns an array containing all statuses belonging to a workflow.
 	 * 
-	 * @see \raoul2000\workflow\source\IWorkflowSource::getAllStatuses()
+	 * @see \hjp1011\workflow\source\IWorkflowSource::getAllStatuses()
 	 */
 	public function getAllStatuses($workflowId)
 	{

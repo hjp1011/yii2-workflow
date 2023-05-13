@@ -1,8 +1,8 @@
 <?php
-namespace raoul2000\workflow\events;
+namespace hjp1011\workflow\events;
 
 use yii\base\BaseObject;
-use raoul2000\workflow\events\IEventSequence;
+use hjp1011\workflow\events\IEventSequence;
 
 /**
  * This event sequence provider include additional generic events to each sequence.
@@ -11,7 +11,7 @@ use raoul2000\workflow\events\IEventSequence;
  * added to the sequence allowing the developer to create a handler invoked each
  * time a model enters into a workflow.
  *
- * @see \raoul2000\workflow\events\IEventSequence
+ * @see \hjp1011\workflow\events\IEventSequence
  */
 class ExtendedEventSequence extends BaseObject implements IEventSequence
 {
@@ -30,7 +30,7 @@ class ExtendedEventSequence extends BaseObject implements IEventSequence
 	 *
 	 * Where WID is the workflow Id and ID is the status Id.
 	 *
-	 * @see \raoul2000\workflow\events\IEventSequence::createEnterWorkflowSequence()
+	 * @see \hjp1011\workflow\events\IEventSequence::createEnterWorkflowSequence()
 	 */
 	public function createEnterWorkflowSequence($initalStatus, $sender)
 	{
@@ -98,7 +98,7 @@ class ExtendedEventSequence extends BaseObject implements IEventSequence
 	 * - afterLeaveWorkflow(*)
 	 * - afterLeaveWorkflow(WID)
 	 *
-	 * @see \raoul2000\workflow\events\IEventSequence::createLeaveWorkflowSequence()
+	 * @see \hjp1011\workflow\events\IEventSequence::createLeaveWorkflowSequence()
 	 */
 	public function createLeaveWorkflowSequence($finalStatus, $sender)
 	{
@@ -167,7 +167,7 @@ class ExtendedEventSequence extends BaseObject implements IEventSequence
 	 * - afterEnterStatus(*)
 	 * - afterEnterStatus(B)
 
-	 * @see \raoul2000\workflow\events\IEventSequence::createChangeStatusSequence()
+	 * @see \hjp1011\workflow\events\IEventSequence::createChangeStatusSequence()
 	 */
 	public function createChangeStatusSequence($transition, $sender)
 	{

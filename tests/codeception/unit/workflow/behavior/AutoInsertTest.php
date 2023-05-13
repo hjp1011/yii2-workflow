@@ -6,7 +6,7 @@ use Yii;
 use yii\codeception\TestCase;
 use tests\codeception\unit\models\Item00;
 use yii\base\InvalidConfigException;
-use raoul2000\workflow\base\SimpleWorkflowBehavior;
+use hjp1011\workflow\base\SimpleWorkflowBehavior;
 use yii\codeception\DbTestCase;
 
 class AutoInsertTest extends DbTestCase
@@ -17,9 +17,9 @@ class AutoInsertTest extends DbTestCase
 	{
 		parent::setUp();
 		Yii::$app->set('workflowSource',[
-			'class'=> 'raoul2000\workflow\source\file\WorkflowFileSource',
+			'class'=> 'hjp1011\workflow\source\file\WorkflowFileSource',
 			'definitionLoader' => [
-				'class' => 'raoul2000\workflow\source\file\PhpClassLoader',
+				'class' => 'hjp1011\workflow\source\file\PhpClassLoader',
 				'namespace' => 'tests\codeception\unit\models'
 			]			
 		]);
@@ -146,7 +146,7 @@ class AutoInsertTest extends DbTestCase
     	});
     }    
     /**
-	 * @expectedException raoul2000\workflow\base\WorkflowException
+	 * @expectedException hjp1011\workflow\base\WorkflowException
 	 * @expectedExceptionMessage failed to load workflow definition : Class tests\codeception\unit\models\NOTFOUND does not exist
 	 */	
     public function testAutoInsertFails1()
@@ -159,7 +159,7 @@ class AutoInsertTest extends DbTestCase
     	]);
     }   
     /**
-     * @expectedException raoul2000\workflow\base\WorkflowException
+     * @expectedException hjp1011\workflow\base\WorkflowException
      * @expectedExceptionMessage failed to load workflow definition : Class tests\codeception\unit\models\NOTFOUND does not exist
      */
     public function testAutoInsertFails2()

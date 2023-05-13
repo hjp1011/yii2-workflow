@@ -1,10 +1,10 @@
 <?php
-namespace raoul2000\workflow\validation;
+namespace hjp1011\workflow\validation;
 
 use Yii;
 use yii\validators\Validator;
-use raoul2000\workflow\base\SimpleWorkflowBehavior;
-use raoul2000\workflow\base\WorkflowException;
+use hjp1011\workflow\base\SimpleWorkflowBehavior;
+use hjp1011\workflow\base\WorkflowException;
 
 /**
  * WorkflowValidator run validation for the current workflow event.
@@ -36,7 +36,7 @@ class WorkflowValidator extends Validator
 	 * If a workflow event sequence is about to occur, this method scan all validators defined in the
 	 * owner model, and applies the ones which are compatibles for the upcomming events.
 	 *
-	 * @see \raoul2000\workflow\events\IEventSequence
+	 * @see \hjp1011\workflow\events\IEventSequence
 	 */
 	public function validateAttribute($object, $attribute)
 	{

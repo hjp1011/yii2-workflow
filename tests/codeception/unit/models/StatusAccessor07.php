@@ -5,8 +5,8 @@ use Yii;
 use yii\db\BaseActiveRecord;
 use yii\db\QueryBuilder;
 use yii\db\Query;
-use raoul2000\workflow\base\Status;
-use raoul2000\workflow\base\IStatusAccessor;
+use hjp1011\workflow\base\Status;
+use hjp1011\workflow\base\IStatusAccessor;
 use yii\base\Exception;
 
 class StatusAccessor07 implements IStatusAccessor
@@ -35,7 +35,7 @@ class StatusAccessor07 implements IStatusAccessor
 	}
 	/**
 	 * (non-PHPdoc)
-	 * @see \raoul2000\workflow\IStatusAccessor::getStatus()
+	 * @see \hjp1011\workflow\IStatusAccessor::getStatus()
 	 */
 	public function readStatus(BaseActiveRecord $model) {
 		$this->callGetStatusCount++;
@@ -44,7 +44,7 @@ class StatusAccessor07 implements IStatusAccessor
 
 	/**
 	 * (non-PHPdoc)
-	 * @see \raoul2000\workflow\IStatusAccessor::commitStatus()
+	 * @see \hjp1011\workflow\IStatusAccessor::commitStatus()
 	 */
 	public function commitStatus($model)
 	{
@@ -53,7 +53,7 @@ class StatusAccessor07 implements IStatusAccessor
 	}
 	/**
 	 * (non-PHPdoc)
-	 * @see \raoul2000\workflow\IStatusAccessor::setStatus()
+	 * @see \hjp1011\workflow\IStatusAccessor::setStatus()
 	 */
 	public function updateStatus(BaseActiveRecord $model, Status $status = null) {
 		$this->callSetStatusCount++;

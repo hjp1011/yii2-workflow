@@ -1,7 +1,7 @@
 site_name: yii2-workflow User Guide
-repo_url: https://github.com/raoul2000/yii2-workflow
+repo_url: https://github.com/hjp1011/yii2-workflow
 site_description: A simple Yii2 extension to manage your workflows
-site_author: raoul2000
+site_author: hjp1011
 pages:
     - 'Introduction': 'index.md'
     - 'Overview': 'overview.md'

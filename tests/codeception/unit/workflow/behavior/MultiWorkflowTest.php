@@ -5,7 +5,7 @@ use Yii;
 use yii\codeception\TestCase;
 use tests\codeception\unit\models\Item08;
 use yii\base\InvalidConfigException;
-use raoul2000\workflow\base\SimpleWorkflowBehavior;
+use hjp1011\workflow\base\SimpleWorkflowBehavior;
 use yii\codeception\DbTestCase;
 use tests\codeception\unit\fixtures\ItemFixture04;
 
@@ -17,9 +17,9 @@ class MultiWorkflowTest extends DbTestCase {
 	{
 		parent::setUp();
 		Yii::$app->set('workflowSource',[
-			'class'=> 'raoul2000\workflow\source\file\WorkflowFileSource',
+			'class'=> 'hjp1011\workflow\source\file\WorkflowFileSource',
 			'definitionLoader' => [
-				'class' => 'raoul2000\workflow\source\file\PhpClassLoader',
+				'class' => 'hjp1011\workflow\source\file\PhpClassLoader',
 				'namespace' => 'tests\codeception\unit\models'
 			]			
 		]);
@@ -49,7 +49,7 @@ class MultiWorkflowTest extends DbTestCase {
 	}	
 	
 	/**
-	 * @expectedException raoul2000\workflow\base\WorkflowException
+	 * @expectedException hjp1011\workflow\base\WorkflowException
 	 * @expectedExceptionMessageRegExp #No status found with id Item08Workflow2/DUMMY#
 	 */	
 	public function testSetStatusAssignedFails1()
@@ -62,7 +62,7 @@ class MultiWorkflowTest extends DbTestCase {
 	}
 		
 	/**
-	 * @expectedException raoul2000\workflow\base\WorkflowException
+	 * @expectedException hjp1011\workflow\base\WorkflowException
 	 * @expectedExceptionMessageRegExp #No status found with id Item08Workflow1/DUMMY#
 	 */
 	public function testSetStatusAssignedFails2()
@@ -92,7 +92,7 @@ class MultiWorkflowTest extends DbTestCase {
 	}	
 	
 	/**
-	 * @expectedException raoul2000\workflow\base\WorkflowException
+	 * @expectedException hjp1011\workflow\base\WorkflowException
 	 * @expectedExceptionMessageRegExp #No status found with id Item08Workflow1/DUMMY#
 	 */	
 	public function testSetStatusBehaviorFails1()
@@ -103,7 +103,7 @@ class MultiWorkflowTest extends DbTestCase {
 	}	
 	
 	/**
-	 * @expectedException raoul2000\workflow\base\WorkflowException
+	 * @expectedException hjp1011\workflow\base\WorkflowException
 	 * @expectedExceptionMessageRegExp #No status found with id Item08Workflow2/DUMMY#
 	 */
 	public function testSetStatusBehaviorFails2()

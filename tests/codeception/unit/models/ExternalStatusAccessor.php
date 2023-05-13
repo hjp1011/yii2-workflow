@@ -5,15 +5,15 @@ use Yii;
 use yii\db\BaseActiveRecord;
 use yii\db\QueryBuilder;
 use yii\db\Query;
-use raoul2000\workflow\base\Status;
-use raoul2000\workflow\base\IStatusAccessor;
+use hjp1011\workflow\base\Status;
+use hjp1011\workflow\base\IStatusAccessor;
 
 class ExternalStatusAccessor implements IStatusAccessor
 {
 	private $_status;
 
 	/* (non-PHPdoc)
-	 * @see \raoul2000\workflow\IStatusAccessor::getStatus()
+	 * @see \hjp1011\workflow\IStatusAccessor::getStatus()
 	 */
 	public function getStatus(BaseActiveRecord $model) {
 
@@ -47,14 +47,14 @@ class ExternalStatusAccessor implements IStatusAccessor
 		return $command->queryOne();
 	}
 	/* (non-PHPdoc)
-	 * @see \raoul2000\workflow\IStatusAccessor::setStatus()
+	 * @see \hjp1011\workflow\IStatusAccessor::setStatus()
 	 */
 	public function setStatus(BaseActiveRecord $model, Status $status = null) {
 		echo 'setStatus model <br/>';
 		$this->_status = $status != null ? $status->getId() : null;
 	}
 	/* (non-PHPdoc)
-	 * @see \raoul2000\workflow\base\IStatusAccessor::readStatus()
+	 * @see \hjp1011\workflow\base\IStatusAccessor::readStatus()
 	 */
 	public function readStatus(BaseActiveRecord $model) {
 		// TODO: Auto-generated method stub
@@ -62,7 +62,7 @@ class ExternalStatusAccessor implements IStatusAccessor
 	}
 
 	/* (non-PHPdoc)
-	 * @see \raoul2000\workflow\base\IStatusAccessor::updateStatus()
+	 * @see \hjp1011\workflow\base\IStatusAccessor::updateStatus()
 	 */
 	public function updateStatus(BaseActiveRecord $model, Status $status = null) {
 		// TODO: Auto-generated method stub

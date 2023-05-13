@@ -4,9 +4,9 @@ namespace tests\unit\workflow\source\file;
 
 use Yii;
 use yii\codeception\TestCase;
-use raoul2000\workflow\source\file\DefaultArrayParser;
-use raoul2000\workflow\source\file\WorkflowFileSource;
-use raoul2000\workflow\source\file\MinimalArrayParser;
+use hjp1011\workflow\source\file\DefaultArrayParser;
+use hjp1011\workflow\source\file\WorkflowFileSource;
+use hjp1011\workflow\source\file\MinimalArrayParser;
 use yii\helpers\VarDumper;
 
 
@@ -27,7 +27,7 @@ class MinimalArrayParserTest extends TestCase
 	}
 	
 	/**
-	 * @expectedException raoul2000\workflow\base\WorkflowValidationException
+	 * @expectedException hjp1011\workflow\base\WorkflowValidationException
 	 * @expectedExceptionMessage Workflow definition must be provided as an array
 	 */
 	public function testParseInvalidType()
@@ -35,7 +35,7 @@ class MinimalArrayParserTest extends TestCase
 		Yii::$app->parser->parse('WID',null,$this->src);
 	}
 	/**
-	 * @expectedException raoul2000\workflow\base\WorkflowValidationException
+	 * @expectedException hjp1011\workflow\base\WorkflowValidationException
 	 * @expectedExceptionMessage Missing argument : workflow Id
 	 */
 	public function testMissingWorkflowId()
@@ -43,7 +43,7 @@ class MinimalArrayParserTest extends TestCase
 		Yii::$app->parser->parse('',null,$this->src);
 	}	
 	/**
-	 * @expectedException raoul2000\workflow\base\WorkflowValidationException
+	 * @expectedException hjp1011\workflow\base\WorkflowValidationException
 	 * @expectedExceptionMessage Workflow definition must be provided as associative array
 	 */
 	public function testNonAssociativeArray1()
@@ -51,7 +51,7 @@ class MinimalArrayParserTest extends TestCase
 		Yii::$app->parser->parse('WID',['a'],$this->src);
 	}	
 	/**
-	 * @expectedException raoul2000\workflow\base\WorkflowValidationException
+	 * @expectedException hjp1011\workflow\base\WorkflowValidationException
 	 * @expectedExceptionMessage Workflow definition must be provided as associative array
 	 */
 	public function testNonAssociativeArray2()
@@ -59,7 +59,7 @@ class MinimalArrayParserTest extends TestCase
 		Yii::$app->parser->parse('WID',['a'=> [], 'b'],$this->src);
 	}	
 	/**
-	 * @expectedException raoul2000\workflow\base\WorkflowValidationException
+	 * @expectedException hjp1011\workflow\base\WorkflowValidationException
 	 * @expectedExceptionMessage Status must belong to workflow : EXT/a
 	 */
 	public function testExternalStatusError()
@@ -71,7 +71,7 @@ class MinimalArrayParserTest extends TestCase
 	}
 	
 	/**
-	 * @expectedException raoul2000\workflow\base\WorkflowValidationException
+	 * @expectedException hjp1011\workflow\base\WorkflowValidationException
 	 * @expectedExceptionMessage  Associative array not supported (status : WID/a)
 	 */
 	public function testEndStatusAssociativeError()
@@ -82,7 +82,7 @@ class MinimalArrayParserTest extends TestCase
 		],$this->src);
 	}
 	/**
-	 * @expectedException raoul2000\workflow\base\WorkflowValidationException
+	 * @expectedException hjp1011\workflow\base\WorkflowValidationException
 	 * @expectedExceptionMessage End status list must be an array for status  : WID/a
 	 */
 	public function testEndStatusTypeNotSupported()
