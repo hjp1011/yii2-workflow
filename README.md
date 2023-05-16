@@ -1,9 +1,6 @@
 # yii2-workflow
 
-[![Build](https://travis-ci.org/hjp1011/yii2-workflow.svg?branch=master)](https://travis-ci.org/hjp1011/yii2-workflow)
-[![Latest Stable Version](https://poser.pugx.org/hjp1011/yii2-workflow/v/stable)](https://packagist.org/packages/hjp1011/yii2-workflow)
-[![Total Downloads](https://poser.pugx.org/hjp1011/yii2-workflow/downloads)](https://packagist.org/packages/hjp1011/yii2-workflow)
-[![License](https://poser.pugx.org/hjp1011/yii2-workflow/license)](https://packagist.org/packages/hjp1011/yii2-workflow)
+[![Latest Stable Version](http://poser.pugx.org/hjp1011/yii2-workflow/v)](https://packagist.org/packages/hjp1011/yii2-workflow) [![Total Downloads](http://poser.pugx.org/hjp1011/yii2-workflow/downloads)](https://packagist.org/packages/hjp1011/yii2-workflow) [![Latest Unstable Version](http://poser.pugx.org/hjp1011/yii2-workflow/v/unstable)](https://packagist.org/packages/hjp1011/yii2-workflow) [![License](http://poser.pugx.org/hjp1011/yii2-workflow/license)](https://packagist.org/packages/hjp1011/yii2-workflow) [![PHP Version Require](http://poser.pugx.org/hjp1011/yii2-workflow/require/php)](https://packagist.org/packages/hjp1011/yii2-workflow)
 
 ## Installation
 
@@ -139,18 +136,11 @@ Yes, that's severe, but there was many ways to avoid this exception like for ins
 
 This is just one way of using the *SimpleWorkflowBehavior* but there's much more and hopefully enough to assist you in workflow management inside your Yii2 web app.
 
-You will find additional information there :
-
-- [yii2-workflow Usage Guide](http://hjp1011.github.io/yii2-workflow/)
-- [yii2-workflow Class Reference](http://hjp1011.github.io/yii2-workflow/class-ref/)
-- [Demo](http://hjp1011.ass-team.fr/index.php?r=workflow/status-history/update) : a simple example based on the *Post* use case.
 
 You may also be interested in the following projects developed around yii2-workflow :
 
-- [yii2-workflow-view](https://github.com/hjp1011/yii2-workflow-view) : A Widget to display workflows ([demo](http://hjp1011.ass-team.fr/index.php?r=workflow/status-history/update))
-- [yii2-workflow-manager](https://github.com/cornernote/yii2-workflow-manager) : A Module to manage workflows
-- [yii2-wizflow](https://github.com/hjp1011/yii2-wizflow) : a proof of concept that mixes the Wizard UI pattern with workflow ([Demo](http://hjp1011.ass-team.fr/index.php?r=workflow/wizflow/init))
-- ..and more to come
+- [yii2-workflow-view](https://github.com/hjp1011/yii2-workflow-view) : A Widget to display workflows 
+
 
 License
 -------
